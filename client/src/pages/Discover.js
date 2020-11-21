@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import API from "../../utils/API";
-import Card from "../../components/Card";
-import Alert from "../../components/Alert";
+import API from "../utils/API";
+import Card from "../components/Card";
+import Alert from "../components/Alert";
 
-class Dashboard extends Component {
+class Discover extends Component {
   state = {
     image: "",
     match: false,
@@ -68,17 +68,4 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default Discover;

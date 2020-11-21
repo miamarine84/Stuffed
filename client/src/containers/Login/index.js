@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginForm from '../../components/LoginForm';
+import LoginForm from '../../containers/Login';
 import {useStoreContext} from '../../utils/GlobalState';
 import {LOG_IN} from '../../utils/actions';
 
