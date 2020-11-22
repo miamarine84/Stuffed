@@ -23,7 +23,8 @@ const RootContainer=()=>{
         }).catch(error=>{
             setLoading(false);
         });
-    },[])
+    },[]);
+
     if(loading) {
         return <div>Loading...</div>
     } else if(state.account) {
