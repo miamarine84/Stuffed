@@ -1,9 +1,13 @@
 const router = require("express").Router();
-const postRoutes = require("./posts");
-const authRoutes = require("./auth");
-
+const userRoutes = require("./users");
+const authRoutes = require("./authorize");
+const accountRoutes = require("./account");
 // Post routes
-router.use("/posts", postRoutes);
-router.use("/auth", authRoutes);
+//These are the routes that we use to create a post request
 
+//This is the route to create a user and validate the user
+router.use("/user", userRoutes);
+//This is the route to get information about the restauratns
+router.use("/auth", authRoutes);
+router.use("/account", accountRoutes);
 module.exports = router;

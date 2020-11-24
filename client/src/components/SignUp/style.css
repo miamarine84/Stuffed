@@ -1,0 +1,10 @@
+.formContainer{
+    width: 50%;
+    margin:auto;
+}
+.formImage{
+    margin:auto;
+    display:block;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}

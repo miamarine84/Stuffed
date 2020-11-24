@@ -20,10 +20,12 @@ function LoginForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    API.logIn(email,password).then(res=>{
-       console.log("success", res)
+    
+    API.login(email,password).then(res=>{
+       console.log("success", res);
     })
   };
+  
   return (
     <div>
       <FormImage className="formImage"/>
@@ -41,7 +43,7 @@ function LoginForm() {
         <Form.Control onChange={handleInputChange} value={password} name="password" type="password" placeholder="Password" />
       </Form.Group>
       <Button variant="primary" type="submit">
-        Submit
+       Login
       </Button>
     </Form>
     </div>
