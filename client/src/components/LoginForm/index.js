@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
+import FormImage from '../FormImage'
 import { Form, Button } from "react-bootstrap";
+import { BrowserRouter as Redirect } from "react-router-dom";
+import API from '../../utils/API'
 import "./style.css";
 
 function LoginForm() {
@@ -10,23 +13,26 @@ function LoginForm() {
         const {name,value}=event.target;
         if(name==='email'){
             setEmail(value);
-        }else if( name==='password'){
+        }else if(name==='password'){
             setPassword(value);
         }
     }
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(email);
-    console.log(password)
+    API.logIn(email,password).then(res=>{
+       console.log("success", res)
+    })
   };
   return (
-    <Form onSubmit={handleSubmit}>
+    <div>
+      <FormImage className="formImage"/>
+      <Form className="formContainer" onSubmit={handleSubmit}>
       <Form.Group controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control onChange={handleInputChange} name="email" value={email}  type="email" placeholder="Enter email" />
         <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
+          We'll never share your email with anyone else. 
         </Form.Text>
       </Form.Group>
 
@@ -34,13 +40,12 @@ function LoginForm() {
         <Form.Label>Password</Form.Label>
         <Form.Control onChange={handleInputChange} value={password} name="password" type="password" placeholder="Password" />
       </Form.Group>
-      <Form.Group controlId="formBasicCheckbox">
-        <Form.Check name="checkbox" type="checkbox" label="Check me out" />
-      </Form.Group>
       <Button variant="primary" type="submit">
         Submit
       </Button>
     </Form>
+    </div>
+    
   );
 }
 
