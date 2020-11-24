@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginForm from '../../containers/Login';
+import LoginForm from '../../components/LoginForm';
 import {useStoreContext} from '../../utils/GlobalState';
 import {LOG_IN} from '../../utils/actions';
 
@@ -14,7 +14,7 @@ const LoginPage=()=>{
                     type:LOG_IN,
                     payload:account
                 })
-            }} />
+            }}/>
     </div>
 }
 export default LoginPage;
