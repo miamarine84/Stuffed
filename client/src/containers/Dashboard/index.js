@@ -2,8 +2,13 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import Card from "../../components/Card";
 import Alert from "../../components/Alert";
+import "./style.css";
+import { Link } from "react-router-dom";
+
 
 class Dashboard extends Component {
+
+  
   state = {
     image: "",
     match: false,
@@ -52,16 +57,54 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        <h1 className="text-center">Make New Friends</h1>
+         <nav className="navContainer navbar navbar-expand-lg">
+      <Link className="navbar-brand" to="/">
+      <img src="https://user-images.githubusercontent.com/65417908/99906944-e5b5f580-2ca7-11eb-9582-a2313fa43539.png" width="70" height="70
+      " alt="" loading="lazy"/>
+      </Link>
+      <div>
+        <ul className="navbar-nav">
+          <li className="nav-item">
+            <Link
+              to="/"
+              className={
+                window.location.pathname === "/" || window.location.pathname === "//home"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+            >
+              <h5>Home</h5>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/discover"
+              className={window.location.pathname === "/discover" ? "nav-link active" : "nav-link"}
+            >
+              <h5>Matched</h5>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/search"
+              className={window.location.pathname === "/search" ? "nav-link active" : "nav-link"}
+            >
+              <h5>search</h5>
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+        <h1 className="text-center">In the mood of...</h1>
         <h3 className="text-center">
-          Thumbs up on any pups you'd like to meet!
+          Thumbs up on any restaurant you'd like to go!
         </h3>
         <Card image={this.state.image} handleBtnClick={this.handleBtnClick} />
         <h1 className="text-center">
-          Made friends with {this.state.matchCount} pups so far!
+          same {this.state.matchCount} restaurants so far!
         </h1>
         <Alert style={{ opacity: this.state.match ? 1 : 0 }} type="success">
-          Yay! That Pup Liked You Too!!!
+          Yay! Your friend Liked It Too!!!
         </Alert>
       </div>
     );
