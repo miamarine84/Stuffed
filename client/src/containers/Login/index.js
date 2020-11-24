@@ -6,8 +6,7 @@ import {LOG_IN} from '../../utils/actions';
 
 const LoginPage=()=>{
     const [state,dispatch]=useStoreContext();
-    return <div>LoginPage
-
+    return <div>
             <LoginForm onLogIn={(account)=>{
                 localStorage.setItem("authorization-token",account.token);
                 dispatch({
