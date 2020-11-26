@@ -18,8 +18,9 @@ class Navbar extends Component {
       return(
           <nav className="navContainer navbar navbar-expand-lr">
               <Link className="navbar-brand" to="/">
-                        <img src="https://user-images.githubusercontent.com/65417908/99906944-e5b5f580-2ca7-11eb-9582-a2313fa43539.png" width="90" height="90
+                        <img src={require('./logowithoutbackground.png')} width="110" height="80
                               " alt="" loading="lazy"/>
+                              
                         </Link>
         
               <div className="menu-icon" onClick={this.handleClick}>
