@@ -1,9 +1,13 @@
 h1 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Sansita Swashed', cursive;
     color: maroon;
 }
 
+h2{
+    font-family: 'Sansita Swashed', cursive;
+}
 p {
  font-family: Verdana, Geneva, Tahoma, sans-serif;
  color: maroon;
 }
+
