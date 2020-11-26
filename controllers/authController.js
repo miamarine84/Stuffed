@@ -47,5 +47,18 @@ module.exports = {
           }
       })
       .catch(err => res.status(409).json(err));
+  },
+  signUp: function (req, res){
+      db.User.create({
+          email:req.body.email.toLowerCase(),
+          password:md5(req.body.password)
+      }).then(res=>{
+          console.log("we were able to create yor user");
+          res.sendStatus(200);
+
+      }).catch(err=>{
+          console.log(err)
+      })
+    
   }
 };

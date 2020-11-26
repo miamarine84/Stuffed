@@ -1,5 +1,10 @@
+<<<<<<< HEAD
+import React from "react";
+import { NavLink,Link } from "react-router-dom";
+=======
 import React, {Component} from "react";
 import { Link } from "react-router-dom";
+>>>>>>> 38b17dcdf7f85ca534cdcb0906a1c90a21b4ec7a
 import "./style.css";
 import {MenuItems} from "./MenuItems"
 

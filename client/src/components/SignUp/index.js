@@ -4,7 +4,6 @@ import { Form, Button } from "react-bootstrap";
 import API from "../../utils/API";
 import "./style.css";
 
-
 function SignUp(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,17 +16,19 @@ function SignUp(props) {
       setPassword(value);
     }
   };
+  const signUp = async () => {
+      try {
+        const response = await API.signUp(email, password);
+        props.onSignUp(response.data);
+        console.log("success");
+      } catch (error) {
+          console.log(error)
+        alert("Invalid credentials!");
+      }
+  };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    try {
-    
-      const result = await API.signUp(email, password);
-      props.onSignUp(result.data);
-      console.log('This was succesfull!!!')
-    } catch (error) {
-        console.log(error)
-    }
   };
   return (
     <div>
@@ -57,8 +58,8 @@ function SignUp(props) {
             placeholder="Password"
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Sign Up
+        <Button onClick={signUp} variant="primary" type="submit">
+          Sign
         </Button>
       </Form>
     </div>

@@ -27,8 +27,6 @@ const RootContainer=()=>{
 
     if(loading) {
         return <div>Loading...</div>
-    } else if(state.account) {
-        return <PrivateRoutes />;
     } else {
         return <PublicRoutes />;
     }
