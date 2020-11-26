@@ -1,4 +1,4 @@
-const userController=require('../../controllers/userController');
+const authController=require('../../controllers/authController');
 const router = require("express").Router();
 
 
@@ -7,6 +7,6 @@ const router = require("express").Router();
 
 // Matches with "/api/posts/:id"
 router
-  .route("/signup").post(userController.create);
+  .route("/").post(authController.signUp);
 
 module.exports = router;
