@@ -7,6 +7,6 @@ const router = require("express").Router();
 
 // Matches with "/api/posts/:id"
 router
-  .route("/").post(authController.signUp);
+  .route("/signup").post(authController.signUp);
 
 module.exports = router;

@@ -8,7 +8,7 @@ export default {
     return axios.post("/api/auth/login",{email,password});
   },
   signUp:function(email,password) {
-    return axios.post("/api/account/signup",{email,password});
+    return axios.post("/api/account/signup",{"email": email, "password": password});
   },
   verifyAuthentication:function() {
     return axios.get("/api/auth/login",{
