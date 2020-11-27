@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import Card from "../components/Card";
 import Alert from "../components/Alert";
-
+import NavBar from '../components/Navbar'
 class Discover extends Component {
   state = {
     image: "",
@@ -43,7 +43,8 @@ class Discover extends Component {
     API.getRandomDog()
       .then(res =>
         this.setState({
-          image: res.data.message
+          ...this.state,
+          image:res.data.message
         })
       )
       .catch(err => console.log(err));
@@ -52,16 +53,17 @@ class Discover extends Component {
   render() {
     return (
       <div>
-        <h1 className="text-center">Make New Friends</h1>
+        <NavBar/>
+        <h1 className="text-center">Find a new restaurant</h1>
         <h3 className="text-center">
-          Thumbs up on any pups you'd like to meet!
+          Like or swipe right if its a possible choice
         </h3>
         <Card image={this.state.image} handleBtnClick={this.handleBtnClick} />
         <h1 className="text-center">
-          Made friends with {this.state.matchCount} pups so far!
+          We have {this.state.matchCount} restaurant matches
         </h1>
         <Alert style={{ opacity: this.state.match ? 1 : 0 }} type="success">
-          Yay! That Pup Liked You Too!!!
+          Found somthing to eat!!!
         </Alert>
       </div>
     );

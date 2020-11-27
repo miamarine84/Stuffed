@@ -27,7 +27,7 @@ export default {
     return axios.get("https://dog.ceo/api/breeds/list");
   },
   getRestaurants: function () {
-    return axios.create({
+    return axios.get({
       baseURL: "https://api.yelp.com/v3/",
       headers: {
         Authorization: `Bearer ${API_KEY}`,
