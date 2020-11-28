@@ -28,6 +28,58 @@ class Navbar extends Component {
                   
               </div>
               <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
+          <li className="nav-item">
+            <Link
+              to="/dashboard"
+              className={
+                window.location.pathname === "/" || window.location.pathname === "/dashboard"
+                  ? "nav-links active"
+                  : "nav-links"
+              }
+            >
+              <h5>Dashboard</h5>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/discover"
+              className={
+                window.location.pathname === "/" || window.location.pathname === "/discover"
+                  ? "nav-links active"
+                  : "nav-links"
+              }
+            >
+              <h5>Matches</h5>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/search"
+              className={
+                window.location.pathname === "/" || window.location.pathname === "/search"
+                  ? "nav-links active"
+                  : "nav-links"
+              }
+            >
+              <h5>Search</h5>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/logout"
+              className={
+                window.location.pathname === "/" || window.location.pathname === "/logout"
+                  ? "nav-links active"
+                  : "nav-links"
+              }
+            >
+              <h5>Logout</h5>
+            </Link>
+          </li>
+          
+          </ul>
+              
+              {/* <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
                   {MenuItems.map((item, index)=>{
                     return (
                     <li key={index}>
@@ -37,7 +89,7 @@ class Navbar extends Component {
                     </li>
                     )
                   })}
-                </ul>
+                </ul> */}
           </nav>
       )
   }
