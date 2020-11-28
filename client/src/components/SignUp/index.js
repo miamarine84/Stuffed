@@ -19,7 +19,6 @@ function SignUp(props) {
   const signUp = async () => {
       try {
         const response = await API.signUp(email, password);
-        props.onSignUp(response.data);
         console.log("success");
       } catch (error) {
           console.log(error)

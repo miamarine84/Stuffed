@@ -52,9 +52,9 @@ module.exports = {
       db.User.create({
           email:req.body.email.toLowerCase(),
           password:md5(req.body.password)
-      }).then(res=>{
+      }).then(data=>{
           console.log("we were able to create yor user");
-          res.sendStatus(200);
+            return res.json("success").status(200)
 
       }).catch(err=>{
           console.log(err)
