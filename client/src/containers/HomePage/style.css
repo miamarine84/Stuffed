@@ -1,6 +1,8 @@
 h1 {
     font-family: 'Sansita Swashed', cursive;
     color: maroon;
+    text-align: center;
+    font-size: 38px;
 }
 
 h2{
@@ -9,5 +11,6 @@ h2{
 p {
  font-family: Verdana, Geneva, Tahoma, sans-serif;
  color: maroon;
+ text-align: center;
 }
 
