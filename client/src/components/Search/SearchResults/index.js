@@ -1,7 +1,7 @@
 import React from 'react';
-import { SearchResult } from './SearchResult/SearchResult';
+import { SearchResult } from './SearchResult';
 import styles from './SearchResults.module.css';
-import {Spinner} from '../../Spinner/Spinner.js';
+import {Spinner} from '../../Spinner';
 
 export function SearchResults(props) {
     let searchResults = <Spinner/>;
