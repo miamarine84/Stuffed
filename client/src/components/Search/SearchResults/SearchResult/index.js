@@ -7,7 +7,9 @@ export function SearchResult(props) {
     if (!b) {
         return (<div/>);
     }
+
     console.log("This is b: ",b);
+
     const tags = b.categories.map(category => (<span className={`tag ${styles['business-tag']}`} key={b.id + category.title}>{category.title}</span>));
     const addressLines = b.location.display_address.map(addressLine => <p key={b.id + addressLine}>{addressLine}</p>);
 

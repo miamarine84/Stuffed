@@ -2,6 +2,7 @@ import React, {useContext} from "react";
 import API from "../utils/API";
 import Card from "../components/Card";
 import Alert from "../components/Alert";
+
 import {AppContext} from '../App'
 import Search from '../components/Search';
 import{useReactRouter}from "use-react-router";
@@ -9,6 +10,7 @@ function Discover (props){
   const globalState = useContext(AppContext);
 
   const handleBtnClick = (event) => {
+
     // Get the data-value of the clicked button
     const btnType = event.target.attributes.getNamedItem("data-value").value;
     // Clone this.state to the newState object
@@ -31,26 +33,32 @@ function Discover (props){
     
     loadNextDog();
   };
+
   const search = (term, location) => {
     // const { history } = useReactRouter();
     const history =[];
+
     const urlEncodedTerm = encodeURI(term);
     const urlEncodedLocation = encodeURI(location);
     history.push(
       `/search?find_desc=${urlEncodedTerm}&find_loc=${urlEncodedLocation}`
     );
   };
+
   const loadNextDog = () => {
     API.getRandomDog()
       .then((res) =>
       globalState.setImage(res.data.message)
+
       )
       .catch((err) => console.log(err));
   };
 
+
   return(
     <div>
         <Search/>
+
         <h1 className="text-center">Find a new restaurant</h1>
         <h3 className="text-center">
           Like or swipe right if its a possible choice

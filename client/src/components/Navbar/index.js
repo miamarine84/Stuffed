@@ -1,8 +1,12 @@
+
 import React,{useState} from 'react';
 import './style.css';
 import { SearchBar } from '../SearchBar';
 import {Link} from 'react-router-dom';
 
+
+function Navbar (props){
+  const [clicked,setClick]=useState(false);
 
 function NavBar(props) {
     const [clicked,setClick]=useState(false);
@@ -12,6 +16,7 @@ function NavBar(props) {
     }
     return (
         <nav className="navContainer navbar navbar-expand-lr">
+
               <Link className="navbar-brand" to="/">
                         <img src={require('./logowithoutbackground.png')} width="110" height="80
                               " alt="" loading="lazy"/>
