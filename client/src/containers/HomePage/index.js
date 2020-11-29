@@ -27,14 +27,14 @@ const HomePage = () => {
               
             </p>
             <p>
-              Phasellus at rutrum nisl. Praesent sed massa ut ipsum bibendum
-              porttitor. Sed malesuada molestie velit ac viverra. Quisque a
-              ullamcorper purus. Curabitur luctus mi ac mi hendrerit semper.
-              Nulla tincidunt accumsan lobortis. Mauris convallis sapien non
-              nibh porta accumsan. Nunc volutpat tempus porttitor. Nunc congue
-              dictum egestas. Aliquam blandit mi eu urna scelerisque, vitae
-              volutpat ligula ultricies. Maecenas vel porta augue. Fusce mauris
-              ex, dignissim et lacinia ut, tempus eget nibh.
+              We've all been there: You and your significant other are hungry 
+              but can't agree on a place to eat. <i>Stuff'd</i> makes it easy!
+              Instead of listing off dozens of restaurants or searching for hours
+              to find a restaurant you are both in the mood for, simply swipe through
+              a list of restaurants nearby! Swiping left is a "NO!", swiping right
+              is an "Ohhhh yeah". Once you both swipe right on the same restaurant, <i>Stuff'd</i> will notify you of your match, and just like that you've
+              agreed on a place to eat in no time! What are you waiting for? Visit the
+              discover page to start swiping. 
             </p>
             
           </Col>
