@@ -1,7 +1,6 @@
 import React from 'react';
-import { NavBar } from '../NavBar/NavBar';
-import { SubNav } from '../NavBar/SubNav/SubNav';
-import { SearchResultsSummary } from './SearchResultsSummary/SearchResultsSummary';
+import { NavBar } from '../Navbar';
+import { SearchResultsSummary } from './SearchResultsSummary';
 import { SearchResults } from './SearchResults/SearchResults';
 import useReactRouter from 'use-react-router';
 import {useBusinessSearch} from '../hooks/yelp-api/useBusinessSearch';

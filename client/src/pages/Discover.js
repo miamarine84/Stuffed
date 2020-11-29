@@ -2,12 +2,15 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import Card from "../components/Card";
 import Alert from "../components/Alert";
-import NavBar from '../components/Navbar'
+import Navbar from "../../src/components/Navbar";
+
+import {useReactRouter} from 'use-react-router';
+
 class Discover extends Component {
   state = {
     image: "",
     match: false,
-    matchCount: 0
+    matchCount: 0,
   };
 
   // When the component mountzs, load the next dog to be displayed
@@ -15,7 +18,7 @@ class Discover extends Component {
     this.loadNextDog();
   }
 
-  handleBtnClick = event => {
+  handleBtnClick = (event) => {
     // Get the data-value of the clicked button
     const btnType = event.target.attributes.getNamedItem("data-value").value;
     // Clone this.state to the newState object
@@ -39,21 +42,29 @@ class Discover extends Component {
     this.loadNextDog();
   };
 
+  search = (term, location) => {
+    const { history } = useReactRouter();
+    const urlEncodedTerm = encodeURI(term);
+    const urlEncodedLocation = encodeURI(location);
+    history.push(
+      `/search?find_desc=${urlEncodedTerm}&find_loc=${urlEncodedLocation}`
+    );
+  };
   loadNextDog = () => {
     API.getRandomDog()
-      .then(res =>
+      .then((res) =>
         this.setState({
           ...this.state,
-          image:res.data.message
+          image: res.data.message,
         })
       )
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
 
   render() {
     return (
       <div>
-        <NavBar/>
+        <Navbar />
         <h1 className="text-center">Find a new restaurant</h1>
         <h3 className="text-center">
           Like or swipe right if its a possible choice
