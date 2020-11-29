@@ -1,11 +1,13 @@
 import React from 'react';
-import { NavBar } from '../Navbar';
-import { SearchResultsSummary } from './SearchResultsSummary';
-import { SearchResults } from './SearchResults/SearchResults';
-import useReactRouter from 'use-react-router';
-import {useBusinessSearch} from '../hooks/yelp-api/useBusinessSearch';
 
-export function Search() {
+import  NavBar  from '../NavBar';
+import { SearchResultsSummary } from './SearchResultsSummary';
+import  SearchResults  from '../Search/SearchResults';
+import useReactRouter from 'use-react-router';
+import {useBusinessSearch} from '../../hooks/useBusinessSearch';
+
+ function Search() {
+
     const {location, history} = useReactRouter();
     const params = new URLSearchParams(location.search);
     const term = params.get('find_desc');
@@ -26,7 +28,8 @@ export function Search() {
     return (
         <div>
             <NavBar term={term} location={locationParam} search={search}/>
-            <SubNav/>
+
+
             <SearchResultsSummary term={searchParams.term}
                                   location={searchParams.location}
                                   amountResults={amountResults}
@@ -35,4 +38,6 @@ export function Search() {
             <SearchResults businesses={businesses}/>
         </div>
     );
+
 }
+export default Search;

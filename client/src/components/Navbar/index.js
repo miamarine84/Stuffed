@@ -1,18 +1,22 @@
-import React, {Component,useState} from "react";
-import { Link } from "react-router-dom";
-import "./style.css";
-import {MenuItems} from "./MenuItems"
+
+import React,{useState} from 'react';
+import './style.css';
 import { SearchBar } from '../SearchBar';
+import {Link} from 'react-router-dom';
+
 
 function Navbar (props){
   const [clicked,setClick]=useState(false);
 
+function NavBar(props) {
+    const [clicked,setClick]=useState(false);
+
   const handleClick =()=>{
     setClick(true)
     }
+    return (
+        <nav className="navContainer navbar navbar-expand-lr">
 
-    return(
-          <nav className="navContainer navbar navbar-expand-lr">
               <Link className="navbar-brand" to="/">
                         <img src={require('./logowithoutbackground.png')} width="110" height="80
                               " alt="" loading="lazy"/>
@@ -72,14 +76,9 @@ function Navbar (props){
               <h5>Logout</h5>
             </Link>
           </li>
-          
           </ul>
           <SearchBar small term={props.term} location={props.location} search={props.search}/>
           </nav>
-      )
+    );
 }
-
-
-export default Navbar
-
-
+export default NavBar;
