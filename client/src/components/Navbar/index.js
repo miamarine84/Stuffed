@@ -33,7 +33,7 @@ function Navbar (props){
                   : "nav-links"
               }
             >
-              <h5>Dashboard</h5>
+              <h5>Discover</h5>
             </Link>
           </li>
           <li className="nav-item">
