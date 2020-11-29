@@ -3,10 +3,11 @@ import { SearchResult } from './SearchResult';
 import styles from './SearchResults.module.css';
 import {Spinner} from '../../Spinner';
 
-export function SearchResults(props) {
+ function SearchResults(props) {
     let searchResults = <Spinner/>;
     if(props.businesses && props.businesses.length) {
         searchResults = props.businesses.map(b => <SearchResult key={b.id} business={b}/>);
+        console.log(searchResults);
     }
 
     return (
@@ -15,3 +16,4 @@ export function SearchResults(props) {
         </div>
     );
 }
+export default SearchResults;
