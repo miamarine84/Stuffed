@@ -16,14 +16,15 @@ function SignUp(props) {
       setPassword(value);
     }
   };
-  const signUp = async () => {
-      try {
-        const response = await API.signUp(email, password);
-        console.log("success");
-      } catch (error) {
-          console.log(error)
-        alert("Invalid credentials!");
-      }
+  const signUp = () => {
+    console.log(email,password)
+        API.signUp(email, password).then(response=>{
+          console.log("success");
+        }).catch(err=>{
+          console.log(err)
+        })
+        
+      
   };
 
   const handleSubmit = (event) => {

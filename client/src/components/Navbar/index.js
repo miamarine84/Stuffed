@@ -10,7 +10,8 @@ function Navbar(props) {
       setClick(true);
     };
     return (
-      <nav className="navContainer navbar navbar-expand-lr">
+      <div>
+        <nav className="navContainer navbar navbar-expand-lr">
         <Link className="navbar-brand" to="/">
           <img
             src={require("./logowithoutbackground.png")}
@@ -79,13 +80,17 @@ function Navbar(props) {
             </Link>
           </li>
         </ul>
-        <SearchBar
+        
+      </nav>
+      <SearchBar
+          className="SearchBar"
           small
           term={props.term}
           location={props.location}
           search={props.search}
         />
-      </nav>
+      </div>
+      
     );
 }
 export default Navbar;
