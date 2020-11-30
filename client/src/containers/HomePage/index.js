@@ -4,7 +4,7 @@ import Hero from "../../components/Hero";
 import Container from "../../components/Container";
 import Row from "../../components/Row";
 import Col from "../../components/Col";
-import Navbar from "../../components/NavBar";
+import Navbar from "../../components/Navbar";
 import "./style.css";
 
 const HomePage = () => {
