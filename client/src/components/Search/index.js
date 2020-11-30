@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import NavBar from "../NavBar";
+import NavBar from "../Navbar";
 import { SearchResultsSummary } from "./SearchResultsSummary";
 import SearchResults from "../Search/SearchResults";
 import useReactRouter from "use-react-router";
@@ -20,7 +20,7 @@ function Search() {
 
     const term = params.get("find_desc");
     const locationParam = params.get("find_loc");
-    
+
     const [
       businesses,
       amountResults,

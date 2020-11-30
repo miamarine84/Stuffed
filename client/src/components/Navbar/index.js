@@ -6,9 +6,6 @@ import { Link } from "react-router-dom";
 function Navbar(props) {
   const [clicked, setClick] = useState(false);
 
-  function NavBar(props) {
-    const [clicked, setClick] = useState(false);
-
     const handleClick = () => {
       setClick(true);
     };
@@ -90,6 +87,5 @@ function Navbar(props) {
         />
       </nav>
     );
-  }
 }
 export default Navbar;
