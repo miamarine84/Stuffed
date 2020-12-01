@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./style.css";
-import { SearchBar } from "../SearchBar";
+// import { SearchBar } from "../SearchBar";
 import { Link } from "react-router-dom";
 
 function Navbar(props) {
@@ -82,13 +82,13 @@ function Navbar(props) {
         </ul>
         
       </nav>
-      <SearchBar
+      {/* <SearchBar
           className="SearchBar"
           small
           term={props.term}
           location={props.location}
           search={props.search}
-        />
+        /> */}
       </div>
       
     );
