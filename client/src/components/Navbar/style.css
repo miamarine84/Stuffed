@@ -20,7 +20,7 @@ h5 {
 
 .navContainer {
   background-color: #db2222;
-  height: 86px;
+  height: 105px;
 
 
   
@@ -40,6 +40,7 @@ h5 {
 }
 
 .nav-menu{
+  margin-top: -12px;
   display:grid;
   grid-template-columns: repeat(4,auto);
   grid-gap: 10px;
@@ -129,5 +130,8 @@ h5 {
     transform:translate(-100%,60%);
     font-size:1.8rem;
     cursor: pointer;
+  }
+  .navbar-brand {
+    margin-top: -8px;
   }
 }

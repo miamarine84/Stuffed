@@ -4,8 +4,8 @@ export const MenuItems = [
     {
         title: "Dashboard",
         url: <Link
-            to="/"
-            className={window.location.pathname === "/" || window.location.pathname === "/dashboard" ? "nav-link active" : "nav-link"}>
+            to="/dashboard"
+            className={window.location.pathname === "/dashboard" || window.location.pathname === "/dashboard" ? "nav-link active" : "nav-link"}>
             </Link>,
         cName: "nav-links"
     },
