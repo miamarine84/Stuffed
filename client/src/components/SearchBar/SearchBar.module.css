@@ -1,12 +1,56 @@
-.input-control {
-    min-width: 320px;
-}
+/* .input-control {
+    min-width: 20px;
+} */
 
-:global(.button).search-button {
+/* :global(.button).search-button {
     background: #bd1f1f;
     border: none;
+} */
+
+/* :global(.icon).search-icon {
+    color: white;
+} */
+
+/* .form-control{
+    width: 40%!important;
+    margin: auto;
+    margin-bottom: 2em;
+  
+} */
+
+/* @media (min-width: 600px) {
+    form {
+        width: 40%;
+        max-width: 500px;
+    }
+    .form-group{
+        margin-right: 20%;
+    }
+} */
+
+form {
+    margin-top:20px;
+    width: 55%;
+    margin-left:23%;
+  
 }
 
-:global(.icon).search-icon {
+button {
+    border-radius: 12px;
+    background-color: #bd1f1f;
+    border-color: #bd1f1f;
+    height: 40px;
     color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-shadow: none;
+    outline:none!important;
 }
+
+button:hover{
+    height:45px;
+    width: 105px;
+
+}
+
+
+
