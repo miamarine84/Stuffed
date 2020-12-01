@@ -8,6 +8,7 @@ import Navbar from "../components/Navbar";
 import {AppContext} from '../App'
 import Search from '../components/Search';
 import{useReactRouter}from "use-react-router";
+
 function Discover (props){
   const globalState = useContext(AppContext);
 

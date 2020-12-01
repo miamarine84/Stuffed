@@ -7,6 +7,7 @@ import Col from "../../components/Col";
 import Navbar from "../../components/Navbar";
 import "./style.css";
 
+
 const HomePage = () => {
   return (
     <div>
