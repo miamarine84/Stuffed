@@ -6,6 +6,7 @@ import Alert from "../components/Alert";
 import {AppContext} from '../App'
 import Search from '../components/Search';
 import{useReactRouter}from "use-react-router";
+import Navbar from "../components/Navbar";
 function Discover (props){
   const globalState = useContext(AppContext);
 
@@ -57,8 +58,8 @@ function Discover (props){
 
   return(
     <div>
-        <Search/>
-
+       < Navbar />
+       <br></br>
         <h1 className="text-center">Find a new restaurant</h1>
         <h3 className="text-center">
           Like or swipe right if its a possible choice

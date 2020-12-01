@@ -4,6 +4,7 @@ import { SearchBar } from "../SearchBar";
 import { Link } from "react-router-dom";
 
 function Navbar(props) {
+  console.log (props);
   const [clicked, setClick] = useState(false);
 
     const handleClick = () => {
