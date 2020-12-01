@@ -25,9 +25,9 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
+    "md5": "^2.3.0",
     "mongoose": "^5.10.15",
     "react-bootstrap": "^1.4.0",
     "react-bootstrap-validation": "^0.1.11"
-
   }
 }
