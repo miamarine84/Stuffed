@@ -1,10 +1,9 @@
 import React from 'react';
 import styles from './style.css';
 import { SearchBar } from '../SearchBar';
-import { SearchSuggestions } from '../SearchContainer/SearchSuggestions';
 import useReactRouter from 'use-react-router';
 
-export function LandingPage() {
+ function LandingPage() {
   const { history } = useReactRouter();
 
   function search(term, location) {
@@ -19,8 +18,8 @@ export function LandingPage() {
     <div className={styles.landing}>
       <div className={styles['search-area']}>
         <SearchBar search={search} />
-        <SearchSuggestions />
       </div>
     </div>
   );
 }
+export default LandingPage;

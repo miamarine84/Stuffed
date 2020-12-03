@@ -7,12 +7,13 @@ import Col from "../../components/Col";
 import Navbar from "../../components/Navbar";
 import "./style.css";
 
+
 const HomePage = () => {
   return (
     <div>
       <Navbar />
       <Hero backgroundImage="https://www.maxim.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_700/MTYyNjIzMzE0MjgyNDIzMzM2/gettyimages-684757538.webp">
-      <h1> <image src="./logo.png" > </image>Stuff 'd</h1> 
+      {/* <h1> <img src="./logo.png" > </img>Stuff 'd</h1>  */}
         <h2>Let's choose our next restaurant!</h2>
       </Hero>
       <Container style={{ marginTop: 30 }}>

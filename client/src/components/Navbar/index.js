@@ -4,11 +4,24 @@ import "./style.css";
 import { Link } from "react-router-dom";
 
 function Navbar(props) {
+  console.log (props);
   const [clicked, setClick] = useState(false);
 
     const handleClick = () => {
       setClick(true);
+
+    
     };
+
+    const AuthorToken = localStorage.getItem ("authorization-token");
+    console.log (AuthorToken);
+
+   const logOut = () => {
+     console.log("test");
+    localStorage.clear()
+
+   }
+
     return (
       <div>
         <nav className="navContainer navbar navbar-expand-lr">
@@ -67,28 +80,32 @@ function Navbar(props) {
             </Link>
           </li>
           <li className="nav-item">
-            <Link
+            {AuthorToken?(<Link 
+             onClick={logOut}
               to="/logout"
               className={
                 window.location.pathname === "/" ||
-                window.location.pathname === "/logout"
+                window.location.pathname === "/login"
                   ? "nav-links active"
                   : "nav-links"
               }
             >
-              <h5>Logout</h5>
-            </Link>
+              <h5>logout</h5>
+            </Link>): (<Link 
+              to="/logout"
+              className={
+                window.location.pathname === "/" ||
+                window.location.pathname === "/login"
+                  ? "nav-links active"
+                  : "nav-links"
+              }
+            >
+              <h5>Login</h5>
+            </Link>)}
           </li>
         </ul>
         
       </nav>
-      {/* <SearchBar
-          className="SearchBar"
-          small
-          term={props.term}
-          location={props.location}
-          search={props.search}
-        /> */}
       </div>
       
     );
