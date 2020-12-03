@@ -53,7 +53,7 @@ module.exports = {
           email:req.body.email.toLowerCase(),
           password:md5(req.body.password)
       }).then(data=>{
-          console.log("we were able to create yor user");
+          console.log("we were able to create your user");
             return res.json("success").status(200)
 
       }).catch(err=>{

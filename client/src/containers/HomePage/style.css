@@ -1,5 +1,9 @@
+body {
+    background-image: url(../../Images/homePageBack.png);
+}
+
 h1 {
-    font-family: 'Sansita Swashed', cursive;
+    font-family:'Josefin Sans', sans-serif;
     color: maroon;
     text-align: center;
     font-size: 38px;

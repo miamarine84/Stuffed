@@ -2,8 +2,11 @@ import React, {useContext} from "react";
 import API from "../utils/API";
 import Card from "../components/Card";
 import Alert from "../components/Alert";
+import { SearchBar } from "../components/SearchBar";
+import Navbar from "../components/Navbar";
 
 import {AppContext} from '../App'
+
 
 function Discover (props){
   const globalState = useContext(AppContext);
@@ -45,7 +48,7 @@ function Discover (props){
 
   return(
     <div>
-        {/* <Search/> */}
+
         <h1 className="text-center">Find a new restaurant</h1>
         <h3 className="text-center">
           Like or swipe right if its a possible choice
