@@ -34,7 +34,7 @@ console.log(term, location)
                 <div className="control">
                     <div className={`button is-static ${sizeClass}`}></div>
                 </div>
-                <p className="control">
+                <p className="control">Where?
                     <input className={`form-control input ${sizeClass} ${styles['input-control']}`}
                            onChange={(e) => setLocation(e.target.value)}
                            type="text"
