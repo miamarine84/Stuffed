@@ -12,20 +12,16 @@ function Navbar(props) {
 
     
     };
-// <<<<<<< miguelangel
-    
-// =======
 
-//     const AuthorToken = localStorage.getItem ("authorization-token");
-//     console.log (AuthorToken);
+    const AuthorToken = localStorage.getItem ("authorization-token");
+    console.log (AuthorToken);
 
-//    const logOut = () => {
-//      console.log("test");
-//     localStorage.clear()
+   const logOut = () => {
+     console.log("test");
+    localStorage.clear()
 
-//    }
+   }
 
-// >>>>>>> master
     return (
       <div>
         <nav className="navContainer navbar navbar-expand-lr">
