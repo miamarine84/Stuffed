@@ -23,30 +23,31 @@ console.log(term, location)
     return (
         <form onSubmit={submit}>
             <div className="field has-addons">
-                <p className="control">
-                    <input className={`input ${sizeClass} ${styles['input-control']}`}
+                <p className="control">What are you in the mood for?
+                    <input className={`form-control input ${sizeClass} ${styles['input-control']}`}
                            onChange={(e) => setTerm(e.target.value)}
                            type="text"
                            value={term}
-                           placeholder="burgers, barbers, spas, handymen"
+                           placeholder="Ex. Burgers, Pasta, Burritos etc..."
                     />
                 </p>
                 <div className="control">
-                    <div className={`button is-static ${sizeClass}`}>NEAR</div>
+                    <div className={`button is-static ${sizeClass}`}></div>
                 </div>
                 <p className="control">
-                    <input className={`input ${sizeClass} ${styles['input-control']}`}
+                    <input className={`form-control input ${sizeClass} ${styles['input-control']}`}
                            onChange={(e) => setLocation(e.target.value)}
                            type="text"
                            value={location}
-                           placeholder="Where"/>
+                           placeholder="Please Enter a City Name"/>
                 </p>
                 <div className={`button ${sizeClass} ${styles['search-button']}`} onClick={submit}>
-                    <span className={`icon is-small ${styles['search-icon']}`}><i className="fas fa-search"></i></span>
-                </div>
-                <p className="control">
-                    <button className={`button is-static ${sizeClass}`}>Search</button>
+                    {/* <span className={`icon is-small ${styles['search-icon']}`}><i className="fas fa-search"></i></span> */}
+                    <p className="control">
+                    <button className={`button is-static ${sizeClass}`}> <span className={`fas fa-search`}></span> SEARCH</button>
                 </p>
+                </div>
+               
             </div>
         </form>
     );
