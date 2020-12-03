@@ -8,6 +8,7 @@ import {AppContext} from '../../App'
 import '../../../src/index.css'
 
 function Discover (props){
+  //Here we are importing the globalstate of our applicztion. Coming from the App.js
   const globalState = useContext(AppContext);
   const handleBtnClick = (event) => {
     // Get the data-value of the clicked button
@@ -47,6 +48,7 @@ function Discover (props){
         <h1 className="text-center">
           We have {globalState.matchCount} restaurant matches
         </h1>
+        {/* This is the alert that we are using when something goes wrong */}
         <Alert style={{ opacity: globalState.match ? 1 : 0 }} type="success">
           Found somthing to eat!!!
         </Alert>
