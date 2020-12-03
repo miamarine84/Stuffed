@@ -9,6 +9,7 @@ export function useBusinessSearch(term, location) {
     useEffect(() => {
         setBusinesses([]);
         const fetchData = async () => {
+            debugger;
             try {
                 const rawData = await api.get('/businesses/search', searchParams);
                 const resp = await rawData.json();
