@@ -4,8 +4,7 @@ import Card from "../components/Card";
 import Alert from "../components/Alert";
 
 import {AppContext} from '../App'
-import Search from '../components/Search';
-import{useReactRouter}from "use-react-router";
+
 function Discover (props){
   const globalState = useContext(AppContext);
 
@@ -34,17 +33,6 @@ function Discover (props){
     loadNextDog();
   };
 
-  const search = (term, location) => {
-    // const { history } = useReactRouter();
-    const history =[];
-
-    const urlEncodedTerm = encodeURI(term);
-    const urlEncodedLocation = encodeURI(location);
-    history.push(
-      `/search?find_desc=${urlEncodedTerm}&find_loc=${urlEncodedLocation}`
-    );
-  };
-
   const loadNextDog = () => {
     API.getRandomDog()
       .then((res) =>
@@ -57,8 +45,7 @@ function Discover (props){
 
   return(
     <div>
-        <Search/>
-
+        {/* <Search/> */}
         <h1 className="text-center">Find a new restaurant</h1>
         <h3 className="text-center">
           Like or swipe right if its a possible choice

@@ -9,6 +9,7 @@ function Navbar(props) {
     const handleClick = () => {
       setClick(true);
     };
+    
     return (
       <div>
         <nav className="navContainer navbar navbar-expand-lr">
@@ -87,7 +88,6 @@ function Navbar(props) {
           small
           term={props.term}
           location={props.location}
-          search={props.search}
         />
       </div>
       
