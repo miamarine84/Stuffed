@@ -6,8 +6,7 @@ import { SearchBar } from "../components/SearchBar";
 import Navbar from "../components/Navbar";
 
 import {AppContext} from '../App'
-import Search from '../components/Search';
-import{useReactRouter}from "use-react-router";
+
 
 function Discover (props){
   const globalState = useContext(AppContext);
@@ -37,17 +36,6 @@ function Discover (props){
     loadNextDog();
   };
 
-  const search = (term, location) => {
-    // const { history } = useReactRouter();
-    const history =[];
-
-    const urlEncodedTerm = encodeURI(term);
-    const urlEncodedLocation = encodeURI(location);
-    history.push(
-      `/search?find_desc=${urlEncodedTerm}&find_loc=${urlEncodedLocation}`
-    );
-  };
-
   const loadNextDog = () => {
     API.getRandomDog()
       .then((res) =>
@@ -60,14 +48,6 @@ function Discover (props){
 
   return(
     <div>
-      <Navbar />
-       <SearchBar
-          className="SearchBar"
-          small
-          term={props.term}
-          // location={props.location}
-          search={props.search}
-        /> 
 
         <h1 className="text-center">Find a new restaurant</h1>
         <h3 className="text-center">

@@ -1,18 +1,24 @@
 import React, {useState} from 'react';
 import styles from './SearchBar.module.css';
+import {useBusinessSearch} from '../../hooks/useBusinessSearch';
 
 export function SearchBar(props) {
     const [term, setTerm] = useState(props.term || '');
     const [location, setLocation] = useState(props.location || '');
 
-    function submit(e) {
-        if(typeof props.search === 'function') {
-            props.search(term, location);
-        }
-        console.log(term, location);
-        e.preventDefault();
-    }
+    const [finalTerm,setFinalTerm]=useState('');
+    const [finalLocation,setFinalLocation]=useState('');
 
+    function submit(e) {
+        e.preventDefault();
+        setFinalTerm(term);
+        setFinalLocation(location)
+console.log(term, location)
+       setSearchParams(finalTerm,finalLocation)   
+    }
+    const [businesses, amountResults, searchParams, setSearchParams]=useBusinessSearch(finalTerm,finalLocation);
+
+   
     const sizeClass = props.small ? '' : 'is-medium';
     return (
         <form onSubmit={submit}>
