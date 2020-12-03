@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-
+//This is the Image that is used for the "SignUp" and "Login" page.
 function FormImage() {
     return(
         <div className="container">

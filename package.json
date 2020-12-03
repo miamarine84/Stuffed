@@ -28,6 +28,7 @@
     "jsonwebtoken": "^8.5.1",
     "md5": "^2.3.0",
     "mongoose": "^5.10.15",
+    "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-bootstrap-validation": "^0.1.11",
     "react-rating": "^2.0.5",
