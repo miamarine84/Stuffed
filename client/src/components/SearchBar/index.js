@@ -1,13 +1,17 @@
 //Here we are importing our state and react as well
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AppContext } from "../../App";
 //This is the stylesheet , maybe we should call it 'style.css'
 import styles from "./SearchBar.module.css";
 //Here we are importing our costum hook.
 import { useBusinessSearch } from "../../hooks/useBusinessSearch";
 
 export function SearchBar(props) {
+  //Here we are getting the global state of the application.
+  const globalState = useContext(AppContext);
+
   //These are our states.
-  const [term, setTerm] = useState( "");
+  const [term, setTerm] = useState("");
   const [location, setLocation] = useState("");
   const [finalTerm, setFinalTerm] = useState("");
   const [finalLocation, setFinalLocation] = useState("");
@@ -15,7 +19,7 @@ export function SearchBar(props) {
   function submit(e) {
     e.preventDefault();
     //Here we are using the callback function from our 'useBusinessSearch' and passing the term and location as the values.
-    setSearchParams({term, location});
+    setSearchParams({ term, location });
   }
   //These are the variable that we can work with.
   const [
@@ -24,9 +28,43 @@ export function SearchBar(props) {
     searchParams,
     setSearchParams,
   ] = useBusinessSearch(finalTerm, finalLocation);
-  //These should give us back all of these varaible in the console
-  console.log("This is the amount of results:",amountResults, "Search Params: ",searchParams,"Businesses: ", businesses);
-  
+  //This function takes care of setting the current restaurant in the array to the global state.
+  function setRestaurant(){
+
+    if (!businesses) {
+    console.log("Loadint the Businesses");
+  } else {
+    globalState.setBusinesses(businesses);
+    //Ternary operator that sets the current restaurant when there is an object inside of the 'businessesResult'
+    {
+      globalState.businessesResult <= 0
+        ? console.log("loading results...")
+        : globalState.setCurrent(globalState.businessesResult[0]);
+    }
+    
+    if (globalState.currentRestaurant) {
+      //Trying to set the state
+      try{
+      globalState.setName(globalState.currentRestaurant.name);
+      globalState.setReview(globalState.currentRestaurant.review_count);
+      globalState.setPhone(globalState.currentRestaurant.phone);
+      globalState.setPrice(globalState.currentRestaurant.price);
+      globalState.setRating(globalState.currentRestaurant.rating);
+      globalState.setAddress(globalState.currentRestaurant.location);
+      globalState.setImage(globalState.currentRestaurant.image_url);
+
+      console.log("This is the current restaurant information: ",globalState.currentRestaurant.name,globalState.currentRestaurant.review_count,globalState.currentRestaurant.phone,globalState.currentRestaurant.price,globalState.currentRestaurant.rating,globalState.currentRestaurant.location,globalState.currentRestaurant.image_url);
+      }catch(err){
+        console.log("There was an error setting the state")
+      }
+    } else {
+      console.log("Loading the restaurant");
+    }
+  }
+
+  }
+  setRestaurant();
+
   return (
     <form onSubmit={submit}>
       <div className="field has-addons">
@@ -54,8 +92,7 @@ export function SearchBar(props) {
           className={`submitBtn`}
           //Handling the click with the submit function avobe.
           onClick={submit}
-        >
-        </div>
+        ></div>
         <p className="control">
           <button className={`button is-static`}>Search</button>
         </p>

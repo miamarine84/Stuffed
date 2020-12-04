@@ -17,15 +17,6 @@ export default {
       }
     })
   },
-  getRandomDog: function () {
-    return axios.get("https://dog.ceo/api/breeds/image/random");
-  },
-  getDogsOfBreed: function (breed) {
-    return axios.get("https://dog.ceo/api/breed/" + breed + "/images");
-  },
-  getBaseBreedsList: function () {
-    return axios.get("https://dog.ceo/api/breeds/list");
-  },
   getRestaurants: function () {
     return axios.get({
       baseURL: "https://api.yelp.com/v3/",

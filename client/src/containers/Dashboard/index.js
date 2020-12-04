@@ -10,32 +10,32 @@ import '../../../src/index.css'
 function Discover (props){
   //Here we are importing the globalstate of our applicztion. Coming from the App.js
   const globalState = useContext(AppContext);
+
   const handleBtnClick = (event) => {
-    // Get the data-value of the clicked button
+    // Get the data-value of the clicked button, This value is coming from the Card component.
     const btnType = event.target.attributes.getNamedItem("data-value").value;
-    // Clone this.state to the newState object
+    
+    console.log(btnType)
     // We'll modify this object and use it to set our component's state
     if (btnType === "pick") {
-      // Set newState.match to either true or false depending on whether or not the dog likes us (1/5 chance)
-      globalState.match = 1 === Math.floor(Math.random() * 5) + 1;
-      // Set newState.matchCount equal to its current value or its current value + 1 depending on whether the dog likes us
-      globalState.count = +1 
-        ? globalState.setCount(globalState.count + 1)
-        : globalState.matchCount;
+      //Here we have to save the restaurant into the database and compare this restaurant to the one on the other users array.
+      //If they match we alert. Other wise nothing
+      
+
+      
     } else {
-      // If we thumbs down'ed the dog, we haven't matched with it
-      globalState.setMatch(false)
+      // If the restaurant is not liked set the match to false
+      
     }
     // Replace our component's state with newState, load the next dog image
-    loadNextDog();
+    loadNextRestaurant();
   };
-  const loadNextDog = () => {
-    API.getRandomDog()
-      .then((res) =>
-      globalState.setImage(res.data.message)
-      )
-      .catch((err) => console.log(err));
+
+  const loadNextRestaurant = () => {
+    //Here we need to handle the Next restaurant that need to be loaded.
+
   };
+
   return(
     <div>
         <Navbar />

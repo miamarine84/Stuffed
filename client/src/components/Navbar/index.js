@@ -4,17 +4,13 @@ import "./style.css";
 import { Link } from "react-router-dom";
 
 function Navbar(props) {
-  console.log (props);
   const [clicked, setClick] = useState(false);
 
     const handleClick = () => {
       setClick(true);
-
-    
     };
 
     const AuthorToken = localStorage.getItem ("authorization-token");
-    console.log (AuthorToken);
 
    const logOut = () => {
      console.log("test");
