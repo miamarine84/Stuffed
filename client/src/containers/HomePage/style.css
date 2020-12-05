@@ -3,13 +3,14 @@ body {
 }
 
 h1 {
-    font-family:'Josefin Sans', sans-serif;
+    font-family:'Sansita Swashed', cursive;
     color: maroon;
     text-align: center;
     font-size: 38px;
 }
 
 h2{
+    padding-top: 150px;
     font-family: 'Sansita Swashed', cursive;
 }
 p {

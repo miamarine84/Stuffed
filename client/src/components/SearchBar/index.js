@@ -69,24 +69,24 @@ export function SearchBar(props) {
   return (
     <form onSubmit={submit}>
       <div className="field has-addons">
-        <p className="control">
+        <p className="control">What are you in the mood for?
           <input
-            className={`inputPlace`}
+            className={`form-control inputPlace`}
             // Here we are handling the form with react state. The user is seing the state not what "they" are typing.
             onChange={(e) => setTerm(e.target.value)}
             type="text"
             value={term}
-            placeholder="burgers, barbers, spas, handymen"
+            placeholder="Burgers, Pizza, Tacos etc..."
           />
         </p>
-        <p className="control">
+        <p className="control"> Where?
           <input
-            className={`inputLocation`}
+            className={`form-control inputLocation`}
             // Here we are handling the form with react state. The user is seing the state not what "they" are typing.
             onChange={(e) => setLocation(e.target.value)}
             type="text"
             value={location}
-            placeholder="Where"
+            placeholder="Please enter a city name"
           />
         </p>
         <div
