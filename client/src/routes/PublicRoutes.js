@@ -4,6 +4,8 @@ import HomePage from '../containers/HomePage';
 import LoginPage from '../containers/Login';
 import SignUp from '../containers/SignUp';
 import Dashboard from '../containers/Dashboard';
+
+
 const PublicRoutes=()=>{
     return <Router>
         <Switch>
@@ -12,6 +14,7 @@ const PublicRoutes=()=>{
             <Route exact={true} path="/login" component={LoginPage} />
             <Route exact={true} path="/signup" component={SignUp} />
             <Route exact={true} path="/home" component={HomePage} />
+            
             <Redirect to="/home" />
         </Switch>
         </Router>
