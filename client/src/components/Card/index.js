@@ -15,7 +15,7 @@ function Card(props) {
       
     >
       {/* If there is no "props.image" we display the spinner. */}
-      {!props.image && <i className="fa fa-spinner fa-spin" aria-hidden="true" />}
+      {!props.image && <div><img src={"https://user-images.githubusercontent.com/65417908/101260693-799fac80-36ff-11eb-90ff-aa1a486a61fa.png"}className="logo" aria-hidden="true"></img><p className="text">Fill out the form above to start swiping!</p></div>}
       {/* These are the buttons of the application. */}
       <CardBtn
         onClick={props.handleBtnClick}
