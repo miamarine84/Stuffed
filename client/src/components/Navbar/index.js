@@ -6,21 +6,21 @@ import { Link } from "react-router-dom";
 function Navbar(props) {
   const [clicked, setClick] = useState(false);
 
-    const handleClick = () => {
-      setClick(true);
-    };
+  const handleClick = () => {
+    setClick(true);
+  };
 
-    const AuthorToken = localStorage.getItem ("authorization-token");
+  const AuthorToken = localStorage.getItem("authorization-token");
 
-   const logOut = () => {
-     console.log("test");
+  const logOut = () => {
+    console.log("test");
     localStorage.clear()
 
-   }
+  }
 
-    return (
-      <div>
-        <nav className="navContainer navbar navbar-expand-lr">
+  return (
+    <div>
+      <nav className="navContainer navbar navbar-expand-lr">
         <Link className="navbar-brand" to="/">
           <img
             src={require("./logowithoutbackground.png")}
@@ -41,7 +41,7 @@ function Navbar(props) {
               to="/dashboard"
               className={
                 window.location.pathname === "/" ||
-                window.location.pathname === "/dashboard"
+                  window.location.pathname === "/dashboard"
                   ? "nav-links active"
                   : "nav-links"
               }
@@ -54,7 +54,7 @@ function Navbar(props) {
               to="/discover"
               className={
                 window.location.pathname === "/" ||
-                window.location.pathname === "/discover"
+                  window.location.pathname === "/discover"
                   ? "nav-links active"
                   : "nav-links"
               }
@@ -64,34 +64,34 @@ function Navbar(props) {
           </li>
           <li className="nav-item">
             <Link
-              to="/search"
+              to="/signup"
               className={
                 window.location.pathname === "/" ||
-                window.location.pathname === "/search"
+                  window.location.pathname === "/signup"
                   ? "nav-links active"
                   : "nav-links"
               }
             >
-              <h5>Search</h5>
+              <h5>Sign Up</h5>
             </Link>
           </li>
           <li className="nav-item">
-            {AuthorToken?(<Link 
-             onClick={logOut}
+            {AuthorToken ? (<Link
+              onClick={logOut}
               to="/logout"
               className={
                 window.location.pathname === "/" ||
-                window.location.pathname === "/login"
+                  window.location.pathname === "/login"
                   ? "nav-links active"
                   : "nav-links"
               }
             >
               <h5>logout</h5>
-            </Link>): (<Link 
-              to="/logout"
+            </Link>) : (<Link
+              to="/login"
               className={
                 window.location.pathname === "/" ||
-                window.location.pathname === "/login"
+                  window.location.pathname === "/login"
                   ? "nav-links active"
                   : "nav-links"
               }
@@ -100,10 +100,10 @@ function Navbar(props) {
             </Link>)}
           </li>
         </ul>
-        
+
       </nav>
-      </div>
-      
-    );
+    </div>
+
+  );
 }
 export default Navbar;
