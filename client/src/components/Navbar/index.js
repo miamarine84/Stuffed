@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "./style.css";
-// import { SearchBar } from "../SearchBar";
+import {useStoreContext} from '../../utils/GlobalState';
+import {LOG_OUT} from '../../utils/actions';// import { SearchBar } from "../SearchBar";
 import { Link } from "react-router-dom";
 function Navbar(props) {
+  const [state,dispatch]=useStoreContext();
   const [clicked, setClick] = useState(false);
   const handleClick = () => {
     setClick(true);
@@ -11,6 +13,10 @@ function Navbar(props) {
   const logOut = () => {
     console.log("test");
     localStorage.clear()
+    dispatch({
+      type:LOG_OUT,
+      payload:null
+  })
   }
   return (
     <div>
