@@ -3,6 +3,7 @@ import CardBtn from "../CardBtn";
 import "./style.css";
 //This is the card component.
 function Card(props) {
+
   return (
     <div
       className="card"

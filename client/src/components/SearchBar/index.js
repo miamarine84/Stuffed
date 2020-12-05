@@ -39,7 +39,7 @@ export function SearchBar(props) {
     {
       globalState.businessesResult <= 0
         ? console.log("loading results...")
-        : globalState.setCurrent(globalState.businessesResult[0]);
+        : globalState.setCurrent(globalState.businessesResult[1]);
     }
     
     if (globalState.currentRestaurant) {
@@ -52,8 +52,9 @@ export function SearchBar(props) {
       globalState.setRating(globalState.currentRestaurant.rating);
       globalState.setAddress(globalState.currentRestaurant.location);
       globalState.setImage(globalState.currentRestaurant.image_url);
+      globalState.setUrl(globalState.currentRestaurant.url);
 
-      console.log("This is the current restaurant information: ",globalState.currentRestaurant.name,globalState.currentRestaurant.review_count,globalState.currentRestaurant.phone,globalState.currentRestaurant.price,globalState.currentRestaurant.rating,globalState.currentRestaurant.location,globalState.currentRestaurant.image_url);
+      console.log("This is the current restaurant information: ",globalState.currentRestaurant);
       }catch(err){
         console.log("There was an error setting the state")
       }
@@ -63,7 +64,7 @@ export function SearchBar(props) {
   }
 
   }
-  setRestaurant();
+  
 
   return (
     <form onSubmit={submit}>
@@ -91,7 +92,7 @@ export function SearchBar(props) {
         <div
           className={`submitBtn`}
           //Handling the click with the submit function avobe.
-          onClick={submit}
+          onClick={submit, setRestaurant()}
         ></div>
         <p className="control">
           <button className={`button is-static`}>Search</button>
