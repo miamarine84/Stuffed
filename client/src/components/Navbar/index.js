@@ -27,7 +27,7 @@ function Navbar(props) {
             width="110"
             height="80
                               "
-            alt=""
+            alt="Stuff'd"
             loading="lazy"
           />
         </Link>
