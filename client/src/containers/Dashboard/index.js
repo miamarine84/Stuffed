@@ -6,6 +6,7 @@ import { SearchBar } from "../../components/SearchBar";
 import Navbar from "../../components/Navbar";
 import { AppContext } from '../../App'
 import "./style.css";
+import TinderCard from 'react-tinder-card'
 
 function Discover(props) {
   //Here we are importing the globalstate of our applicztion. Coming from the App.js
@@ -58,11 +59,19 @@ function Discover(props) {
       )
     }
   }
-
+  const onSwipe = (direction) => {
+    console.log('You swiped: ' + direction)
+    
+  }
+   
+  const onCardLeftScreen = (myIdentifier) => {
+    console.log(myIdentifier + ' left the screen')
+  }
   return (
     <div class = "background">
       <Navbar />
       <SearchBar />
+      
       <h1 className="text-center">Find a new restaurant</h1>
       <h3 className="text-center">
         Like or swipe right if its a possible choice
@@ -73,7 +82,8 @@ function Discover(props) {
             {globalState.name}
           </h3>
           </div>
-      <Card image={globalState.image} handleBtnClick={handleBtnClick} />
+          <TinderCard onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen('fooBar')} preventSwipe={['right', 'left']}>
+      <Card image={globalState.image} handleBtnClick={handleBtnClick} > </Card></TinderCard>
       {restaurantRenderer()}
       </div>
       <h1 className="text-center">
