@@ -10,6 +10,7 @@ import API from "../../utils/API";
 import "./style.css";
 //This component takes the submit function as one of its props
 function LoginForm(props) {
+  console.log(useEffect)
   //The states
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
