@@ -21,7 +21,7 @@
 }
 
 .pass::after {
-  content: "\f057";
+  content: "\f165";
 }
 
 .pick {
@@ -30,7 +30,7 @@
 }
 
 .pick::after {
-  content: "\f004";
+  content: "\f164";
 }
 
 
