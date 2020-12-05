@@ -23,7 +23,7 @@ function Navbar(props) {
       <nav className="navContainer navbar navbar-expand-lr">
         <Link className="navbar-brand" to="/home">
           <img
-            src={"https://files.slack.com/files-pri/T01540F8NMQ-F01G8J7KZMY/logowithoutbackground.png"}
+            src={"https://user-images.githubusercontent.com/65417908/101260452-fcc00300-36fd-11eb-86b5-65a6d8d0187a.png"}
             width="110"
             height="80
                               "
