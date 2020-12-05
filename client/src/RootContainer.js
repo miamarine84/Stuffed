@@ -28,7 +28,7 @@ console.log(state, 'line 27 rootcontatiner')
     if(loading) {
         return <div>Loading...</div>
     } 
-    else if(!state){
+    else if(state.account){
         return <PrivateRoutes />;
     }
     else{
