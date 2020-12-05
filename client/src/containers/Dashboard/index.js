@@ -5,7 +5,7 @@ import Alert from "../../components/Alert";
 import { SearchBar } from "../../components/SearchBar";
 import Navbar from "../../components/Navbar";
 import { AppContext } from '../../App'
-import '../../../src/index.css'
+import "./style.css";
 
 function Discover(props) {
   //Here we are importing the globalstate of our applicztion. Coming from the App.js
