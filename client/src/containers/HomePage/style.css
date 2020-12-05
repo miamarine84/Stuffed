@@ -10,8 +10,9 @@ h1 {
 }
 
 h2{
-    padding-top: 150px;
+    padding-top: 190px;
     font-family: 'Sansita Swashed', cursive;
+    text-shadow: 2px 2px #6b3838;
 }
 p {
  font-family: Verdana, Geneva, Tahoma, sans-serif;

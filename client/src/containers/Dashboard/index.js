@@ -39,20 +39,21 @@ function Discover(props) {
   function restaurantRenderer() {
     if (globalState.name) {
       return (
-        <div>
-          <h3>
+        <div className="info-container">
+          {/* <h3 className="restaurant-name">
             {globalState.name}
-          </h3>
-          <h6>
-            Restaurant Rating: {globalState.rating}
-          </h6>
-          <h6>
+          </h3> */}
+          <h6 className="restaurant-info">
             Price: {globalState.price}
           </h6>
-          <h6>
-            Rating: {globalState.rating}
+          <h6 className="restaurant-info">
+            Restaurant Rating: {globalState.rating}
           </h6>
-          <a  target="_blank" href= {globalState.url}>Click here to check out {globalState.name} </a>in Yelp! There are {globalState.reviewCount} reviews available
+         
+          <h6 className="restaurant-info">
+            <a  target="_blank" href= {globalState.url}>Click here to check out {globalState.name} on Yelp! </a>
+            There are {globalState.reviewCount} reviews available
+            </h6>
         </div>
       )
     }
@@ -66,12 +67,20 @@ function Discover(props) {
       <h3 className="text-center">
         Like or swipe right if its a possible choice
         </h3>
+        <div className="container-div">
+        <div className="name-info">
+          <h3 className="restaurant-name">
+            {globalState.name}
+          </h3>
+          </div>
       <Card image={globalState.image} handleBtnClick={handleBtnClick} />
+      {restaurantRenderer()}
+      </div>
       <h1 className="text-center">
         We have {globalState.matchCount} restaurant matches
         </h1>
 
-        {restaurantRenderer()}
+       
 
       {/* This is the alert that we are using when something goes wrong */}
       <Alert style={{ opacity: globalState.match ? 1 : 0 }} type="success">
