@@ -37,7 +37,6 @@ function Discover(props) {
 
   };
   function restaurantRenderer() {
-    console.log(globalState.price, 'dalofjpsgfjpdasgpdasjgpjasdog')
     if (globalState.name) {
       return (
         <div>

@@ -52,6 +52,9 @@ function LoginForm(props) {
   return (
     <div>
       <FormImage className="formImage" />
+      <h3>
+        Login here:
+      </h3>
       <Form className="formContainer" onSubmit={handleSubmit}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
