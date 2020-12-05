@@ -17,14 +17,14 @@ function SignUp(props) {
     }
   };
   const signUp = () => {
-    console.log(email,password)
-        API.signUp(email, password).then(response=>{
-          console.log("success");
-        }).catch(err=>{
-          console.log(err)
-        })
-        
-      
+    console.log(email, password)
+    API.signUp(email, password).then(response => {
+      console.log("success");
+    }).catch(err => {
+      console.log(err)
+    })
+
+
   };
 
   const handleSubmit = (event) => {
@@ -33,6 +33,9 @@ function SignUp(props) {
   return (
     <div>
       <FormImage className="formImage" />
+      <h3>
+        Sign Up here:
+      </h3>
       <Form className="formContainer" onSubmit={handleSubmit}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
@@ -59,7 +62,7 @@ function SignUp(props) {
           />
         </Form.Group>
         <Button onClick={signUp} variant="primary" type="submit">
-          Sign
+          Sign Up
         </Button>
       </Form>
     </div>

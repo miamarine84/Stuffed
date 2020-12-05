@@ -24,11 +24,15 @@ const RootContainer=()=>{
             setLoading(false);
         });
     },[]);
-
+console.log(state, 'line 27 rootcontatiner')
     if(loading) {
         return <div>Loading...</div>
-    } else {
-        return <PublicRoutes />;
+    } 
+    else if(!state){
+        return <PrivateRoutes />;
+    }
+    else{
+        return <PublicRoutes />
     }
 
 }
