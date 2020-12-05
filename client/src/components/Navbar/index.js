@@ -2,22 +2,17 @@ import React, { useState } from "react";
 import "./style.css";
 // import { SearchBar } from "../SearchBar";
 import { Link } from "react-router-dom";
-
 function Navbar(props) {
+  
   const [clicked, setClick] = useState(false);
-
   const handleClick = () => {
     setClick(true);
   };
-
   const AuthorToken = localStorage.getItem("authorization-token");
-
   const logOut = () => {
     console.log("test");
     localStorage.clear()
-
   }
-
   return (
     <div>
       <nav className="navContainer navbar navbar-expand-lr">
@@ -31,7 +26,6 @@ function Navbar(props) {
             loading="lazy"
           />
         </Link>
-
         <div className="menu-icon" onClick={handleClick}>
           <i className={clicked ? "fas fa-times" : "fas fa-bars"}></i>
         </div>
@@ -63,10 +57,8 @@ function Navbar(props) {
             </Link>
           </li>
           <li className="nav-item">
-<<<<<<< HEAD
-            {AuthorToken?(<Link 
-             onClick={logOut}
-=======
+
+
             <Link
               to="/signup"
               className={
@@ -82,7 +74,6 @@ function Navbar(props) {
           <li className="nav-item">
             {AuthorToken ? (<Link
               onClick={logOut}
->>>>>>> 59aa5981303f37c1ff1f0b6380f25f996f43939c
               to="/logout"
               className={
                 window.location.pathname === "/" ||
@@ -105,10 +96,8 @@ function Navbar(props) {
             </Link>)}
           </li>
         </ul>
-
       </nav>
     </div>
-
   );
 }
 export default Navbar;
