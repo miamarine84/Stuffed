@@ -10,17 +10,17 @@ body {
     width: 80%;
     margin-left: 10%;
     border-radius: 10px;
-    background-color: rgb(233, 77, 77);
+   
 }
 
 .restaurant-name{
     margin-top: 10px;
     text-align: center;
     font-weight: bold;
-    color:white;
+    color:rgb(107, 13, 13);
 }
 .name-info {
-    background-color:  rgb(233, 77, 77);
+    
     border-radius:10px;
     width: 70%;
     height: 50px;
@@ -29,10 +29,24 @@ body {
 }
 
 .container-div{
-    background-color:  rgb(233, 77, 77);
+    background-color:  rgba(250, 248, 248, .6);
     width:50%;
     border-radius: 10px;
-    margin-left:25%;
+    margin-left:24.5%;
     height:630px;
     padding-top:2px;
+}
+
+.restaurant-info{
+    font-size:20px;
+    color:black;
+    /* margin-left: 30px; */
+    text-align: center;
+}
+
+a {
+    color: rgb(107, 13, 13);
+}
+a:hover{
+    color: rgb(107, 13, 13);
 }

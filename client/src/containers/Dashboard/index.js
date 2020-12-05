@@ -40,17 +40,20 @@ function Discover(props) {
     if (globalState.name) {
       return (
         <div className="info-container">
-          <h3 className="restaurant-name">
+          {/* <h3 className="restaurant-name">
             {globalState.name}
-          </h3>
-          <h6 className="restaurant-price">
+          </h3> */}
+          <h6 className="restaurant-info">
             Price: {globalState.price}
           </h6>
-          <h6 className="restaurant-rating">
+          <h6 className="restaurant-info">
             Restaurant Rating: {globalState.rating}
           </h6>
          
-          <a className="restaurant-reviews" target="_blank" href= {globalState.url}>Click here to check out {globalState.name} on Yelp! </a>There are {globalState.reviewCount} reviews available
+          <h6 className="restaurant-info">
+            <a  target="_blank" href= {globalState.url}>Click here to check out {globalState.name} on Yelp! </a>
+            There are {globalState.reviewCount} reviews available
+            </h6>
         </div>
       )
     }

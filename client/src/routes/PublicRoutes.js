@@ -13,7 +13,7 @@ const PublicRoutes=()=>{
             <Route exact={true} path="/home" component={HomePage} />
             <Route exact={true} path="/login" component={LoginPage} />
             <Route exact={true} path="/signup" component={SignUp} />
-            <Route exact={true} path="/home" component={HomePage} />
+           
             
             <Redirect to="/home" />
         </Switch>
