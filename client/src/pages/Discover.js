@@ -4,11 +4,21 @@ import Card from "../components/Card";
 import Alert from "../components/Alert";
 import { SearchBar } from "../components/SearchBar";
 import Navbar from "../components/Navbar";
+//import TinderCard from 'react-tinder-card'
 
 import {AppContext} from '../App'
 
 
 function Discover (props){
+
+  /*const onSwipe = (direction) => {
+    console.log('You swiped: ' + direction)
+  }
+   
+  const onCardLeftScreen = (myIdentifier) => {
+    console.log(myIdentifier + ' left the screen')
+  }*/
+
   const globalState = useContext(AppContext);
 
   const handleBtnClick = (event) => {
@@ -33,11 +43,11 @@ function Discover (props){
     }
     // Replace our component's state with newState, load the next dog image
     
-    loadNextDog();
+    loadNextRestaurants();
   };
 
-  const loadNextDog = () => {
-    API.getRandomDog()
+  const loadNextRestaurants = () => {
+    API.getRandomRestaurant()
       .then((res) =>
       globalState.setImage(res.data.message)
 
@@ -49,11 +59,16 @@ function Discover (props){
   return(
     <div>
 
-        <h1 className="text-center">Find a new restaurant</h1>
+< Navbar />
+
+<SearchBar />
+<br/>
+
         <h3 className="text-center">
           Like or swipe right if its a possible choice
         </h3>
-        <Card image={globalState.image} handleBtnClick={handleBtnClick} />
+        <TinderCard onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen('fooBar')} preventSwipe={['right', 'left']}>RESTAURANTS</TinderCard>
+        <br/>
         <h1 className="text-center">
           We have {globalState.matchCount} restaurant matches
         </h1>

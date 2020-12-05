@@ -12,20 +12,18 @@ function Navbar(props) {
 
     
     };
-// <<<<<<< miguelangel
-    
-// =======
 
-//     const AuthorToken = localStorage.getItem ("authorization-token");
-//     console.log (AuthorToken);
 
-//    const logOut = () => {
-//      console.log("test");
-//     localStorage.clear()
+const AuthorToken = localStorage.getItem ("authorization-token");
+console.log (AuthorToken);
 
-//    }
+const logOut = () => {
+console.log("test");
+localStorage.clear()
 
-// >>>>>>> master
+ }
+
+
     return (
       <div>
         <nav className="navContainer navbar navbar-expand-lr">
@@ -68,19 +66,6 @@ function Navbar(props) {
               }
             >
               <h5>Matches</h5>
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link
-              to="/search"
-              className={
-                window.location.pathname === "/" ||
-                window.location.pathname === "/search"
-                  ? "nav-links active"
-                  : "nav-links"
-              }
-            >
-              <h5>Search</h5>
             </Link>
           </li>
           <li className="nav-item">
