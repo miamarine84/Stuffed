@@ -6,6 +6,7 @@ import { SearchBar } from "../../components/SearchBar";
 import Navbar from "../../components/Navbar";
 import { AppContext } from '../../App'
 import "./style.css";
+import SearchUser from '../../components/SearchUser';
 import TinderCard from 'react-tinder-card'
 
 function Discover(props) {
@@ -85,16 +86,18 @@ function Discover(props) {
           <TinderCard onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen('fooBar')} preventSwipe={['right', 'left']}>
       <Card image={globalState.image} handleBtnClick={handleBtnClick} > </Card></TinderCard>
       {restaurantRenderer()}
+      <SearchUser/>
       </div>
       <h1 className="text-center">
         We have {globalState.matchCount} restaurant matches
-        </h1>
-
-       
-
+  </h1>*/}
+   {/*<div className='buttons'>
+        <button onClick={() => onSwipe('left')}>Swipe left!</button>
+        <button onClick={() => onSwipe('right')}>Swipe right!</button>
+      </div>*/}
       {/* This is the alert that we are using when something goes wrong */}
       <Alert style={{ opacity: globalState.match ? 1 : 0 }} type="success">
-        Found somthing to eat!!!
+        Found something to eat!!!
         </Alert>
     </div>
   )
