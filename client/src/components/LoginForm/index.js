@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from "react";
+//Here we are importing the image that does above the form
 import FormImage from "../FormImage";
+//These are buttons and forms from an npm package
 import { Form, Button } from "react-bootstrap";
+//This will be used for us to Redirect the user to their home page.
 import { BrowserRouter as Redirect } from "react-router-dom";
+//These are all of our functions that contain api request
 import API from "../../utils/API";
 import "./style.css";
-
+//This component takes the submit function as one of its props
 function LoginForm(props) {
+  //The states
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  //Making sure that the state and the application is running with react
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     if (name === "email") {
+      //Setting the value to the state
       setEmail(value);
       console.log(value);
     } else if (name === "password") {
@@ -19,7 +25,7 @@ function LoginForm(props) {
       console.log(value);
     }
   };
-
+  //This function makes sure that the user is entering a valid email and password before allowing them to login
   const logIn = async () => {
     if (!email) {
       alert("Please enter your email address");
@@ -27,7 +33,9 @@ function LoginForm(props) {
       alert("Please enter your account password");
     } else {
       try {
+        //Making a request to the api to validate the user
         const response = await API.logIn(email, password);
+        //When the user is validated we create a token for this user and this is how we will keep track of their account.
         props.onLogIn(response.data);
         console.log("success")
       } catch (error) {
@@ -35,6 +43,7 @@ function LoginForm(props) {
       }
     }
   };
+//Making sure the the default event does not happen in the form 
 
   const handleSubmit = (event) => {
     event.preventDefault();

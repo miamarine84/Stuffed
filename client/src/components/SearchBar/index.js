@@ -1,54 +1,103 @@
-import React, {useState} from 'react';
-import styles from './SearchBar.module.css';
-import {useBusinessSearch} from '../../hooks/useBusinessSearch';
+//Here we are importing our state and react as well
+import React, { useState, useContext } from "react";
+import { AppContext } from "../../App";
+//This is the stylesheet , maybe we should call it 'style.css'
+import styles from "./SearchBar.module.css";
+//Here we are importing our costum hook.
+import { useBusinessSearch } from "../../hooks/useBusinessSearch";
 
 export function SearchBar(props) {
-    const [term, setTerm] = useState(props.term || '');
-    const [location, setLocation] = useState(props.location || '');
+  //Here we are getting the global state of the application.
+  const globalState = useContext(AppContext);
 
-    const [finalTerm,setFinalTerm]=useState('');
-    const [finalLocation,setFinalLocation]=useState('');
+  //These are our states.
+  const [term, setTerm] = useState("");
+  const [location, setLocation] = useState("");
+  const [finalTerm, setFinalTerm] = useState("");
+  const [finalLocation, setFinalLocation] = useState("");
+  //This is how we handle the form submit.
+  function submit(e) {
+    e.preventDefault();
+    //Here we are using the callback function from our 'useBusinessSearch' and passing the term and location as the values.
+    setSearchParams({ term, location });
+  }
+  //These are the variable that we can work with.
+  const [
+    businesses,
+    amountResults,
+    searchParams,
+    setSearchParams,
+  ] = useBusinessSearch(finalTerm, finalLocation);
+  //This function takes care of setting the current restaurant in the array to the global state.
+  function setRestaurant(){
 
-    function submit(e) {
-        e.preventDefault();
-        setFinalTerm(term);
-        setFinalLocation(location)
-console.log(term, location)
-       setSearchParams(finalTerm,finalLocation)   
+    if (!businesses) {
+    console.log("Loadint the Businesses");
+  } else {
+    globalState.setBusinesses(businesses);
+    //Ternary operator that sets the current restaurant when there is an object inside of the 'businessesResult'
+    {
+      globalState.businessesResult <= 0
+        ? console.log("loading results...")
+        : globalState.setCurrent(globalState.businessesResult[1]);
     }
-    const [businesses, amountResults, searchParams, setSearchParams]=useBusinessSearch(finalTerm,finalLocation);
+    
+    if (globalState.currentRestaurant) {
+      //Trying to set the state
+      try{
+      globalState.setName(globalState.currentRestaurant.name);
+      globalState.setReview(globalState.currentRestaurant.review_count);
+      globalState.setPhone(globalState.currentRestaurant.phone);
+      globalState.setPrice(globalState.currentRestaurant.price);
+      globalState.setRating(globalState.currentRestaurant.rating);
+      globalState.setAddress(globalState.currentRestaurant.location);
+      globalState.setImage(globalState.currentRestaurant.image_url);
+      globalState.setUrl(globalState.currentRestaurant.url);
 
-   
-    const sizeClass = props.small ? '' : 'is-medium';
-    return (
-        <form onSubmit={submit}>
-            <div className="field has-addons">
-                <p className="control">What are you in the mood for?
-                    <input className={`form-control input ${sizeClass} ${styles['input-control']}`}
-                           onChange={(e) => setTerm(e.target.value)}
-                           type="text"
-                           value={term}
-                           placeholder="Ex. Burgers, Pasta, Burritos etc..."
-                    />
-                </p>
-                <div className="control">
-                    <div className={`button is-static ${sizeClass}`}></div>
-                </div>
-                <p className="control">
-                    <input className={`form-control input ${sizeClass} ${styles['input-control']}`}
-                           onChange={(e) => setLocation(e.target.value)}
-                           type="text"
-                           value={location}
-                           placeholder="Please Enter a City Name"/>
-                </p>
-                <div className={`button ${sizeClass} ${styles['search-button']}`} onClick={submit}>
-                    {/* <span className={`icon is-small ${styles['search-icon']}`}><i className="fas fa-search"></i></span> */}
-                    <p className="control">
-                    <button className={`button is-static ${sizeClass}`}> <span className={`fas fa-search`}></span> SEARCH</button>
-                </p>
-                </div>
-               
-            </div>
-        </form>
-    );
+      console.log("This is the current restaurant information: ",globalState.currentRestaurant);
+      }catch(err){
+        console.log("There was an error setting the state")
+      }
+    } else {
+      console.log("Loading the restaurant");
+    }
+  }
+
+  }
+  
+
+  return (
+    <form onSubmit={submit}>
+      <div className="field has-addons">
+        <p className="control">
+          <input
+            className={`inputPlace`}
+            // Here we are handling the form with react state. The user is seing the state not what "they" are typing.
+            onChange={(e) => setTerm(e.target.value)}
+            type="text"
+            value={term}
+            placeholder="burgers, barbers, spas, handymen"
+          />
+        </p>
+        <p className="control">
+          <input
+            className={`inputLocation`}
+            // Here we are handling the form with react state. The user is seing the state not what "they" are typing.
+            onChange={(e) => setLocation(e.target.value)}
+            type="text"
+            value={location}
+            placeholder="Where"
+          />
+        </p>
+        <div
+          className={`submitBtn`}
+          //Handling the click with the submit function avobe.
+          onClick={submit, setRestaurant()}
+        ></div>
+        <p className="control">
+          <button className={`button is-static`}>Search</button>
+        </p>
+      </div>
+    </form>
+  );
 }
