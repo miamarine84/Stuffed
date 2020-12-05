@@ -8,8 +8,8 @@ import {LOG_IN} from './utils/actions';
 
 const RootContainer=()=>{
     const [state,dispatch]=useStoreContext();
-
-    const [loading,setLoading]=useState(true);
+const [ready,setReady]=useState(true);
+    // const [loading,setLoading]=useState(true);
 
     useEffect(()=>{
         API.verifyAuthentication().then(response=>{
@@ -17,15 +17,18 @@ const RootContainer=()=>{
                 type:LOG_IN,
                 payload:response.data
             });
-            setLoading(false);
+            setReady(false);;
         },error=>{
-            setLoading(false);
+            setReady(false);
+            // setLoading(false);
         }).catch(error=>{
-            setLoading(false);
+            setReady(false);
+            // setLoading(false);
         });
     },[]);
+
 console.log(state, 'line 27 rootcontatiner')
-    if(loading) {
+    if(ready) {
         return <div>Loading...</div>
     } 
     else if(state.account){
