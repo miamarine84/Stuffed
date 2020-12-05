@@ -17,9 +17,10 @@ function App() {
   const [image,setImage]=useState('');
   const [match,setMatch]=useState(false);
   const [matchCount,setCount]=useState(0);
+  const [url, setUrl] = useState('')
 
   return (
-    <AppContext.Provider value={{currentRestaurant,setCurrent,address,setAddress,rating,setRating,price,setPrice,phone,setPhone,name,setName,reviewCount,setReview,image,setImage,match,setMatch,matchCount,setCount,businessesResult, setBusinesses}}>
+    <AppContext.Provider value={{currentRestaurant,setCurrent,address,setAddress,rating,setRating,price,setPrice,phone,setPhone,name,setName,reviewCount,setReview,image,setImage,match,setMatch,matchCount,setCount,businessesResult, setBusinesses, url, setUrl}}>
       <StoreProvider>
       <RootContainer />
     </StoreProvider>
