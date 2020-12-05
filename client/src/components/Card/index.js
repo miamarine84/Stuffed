@@ -11,6 +11,8 @@ function Card(props) {
       style={{
         backgroundImage: props.image ? `url(${props.image})` : "none"
       }}
+
+      
     >
       {/* If there is no "props.image" we display the spinner. */}
       {!props.image && <i className="fa fa-spinner fa-spin" aria-hidden="true" />}
