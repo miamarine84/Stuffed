@@ -6,6 +6,7 @@ import { SearchBar } from "../../components/SearchBar";
 import Navbar from "../../components/Navbar";
 import { AppContext } from '../../App'
 import "./style.css";
+import SearchUser from '../../components/SearchUser';
 
 function Discover(props) {
   //Here we are importing the globalstate of our applicztion. Coming from the App.js
@@ -75,16 +76,14 @@ function Discover(props) {
           </div>
       <Card image={globalState.image} handleBtnClick={handleBtnClick} />
       {restaurantRenderer()}
+      <SearchUser/>
       </div>
       <h1 className="text-center">
         We have {globalState.matchCount} restaurant matches
         </h1>
-
-       
-
       {/* This is the alert that we are using when something goes wrong */}
       <Alert style={{ opacity: globalState.match ? 1 : 0 }} type="success">
-        Found somthing to eat!!!
+        Found something to eat!!!
         </Alert>
     </div>
   )
