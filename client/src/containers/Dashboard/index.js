@@ -60,7 +60,7 @@ function Discover(props) {
   }
 
   return (
-    <div>
+    <div class = "background">
       <Navbar />
       <SearchBar />
       <h1 className="text-center">Find a new restaurant</h1>
