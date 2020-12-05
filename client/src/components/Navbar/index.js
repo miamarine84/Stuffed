@@ -23,7 +23,7 @@ function Navbar(props) {
       <nav className="navContainer navbar navbar-expand-lr">
         <Link className="navbar-brand" to="/home">
           <img
-            src={require("./logowithoutbackground.png")}
+            src={"https://files.slack.com/files-pri/T01540F8NMQ-F01G8J7KZMY/logowithoutbackground.png"}
             width="110"
             height="80
                               "
