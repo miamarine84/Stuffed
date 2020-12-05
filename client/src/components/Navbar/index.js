@@ -21,7 +21,7 @@ function Navbar(props) {
   return (
     <div>
       <nav className="navContainer navbar navbar-expand-lr">
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand" to="/home">
           <img
             src={require("./logowithoutbackground.png")}
             width="110"
