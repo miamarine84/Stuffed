@@ -6,7 +6,7 @@ import RootContainer from './RootContainer';
 export const AppContext = createContext();
 
 function App() {
-  const [businessesResult, setBusinesses]=useState([]);
+  const [businessesResult, setBusinesses]=useState([0]);
   const [currentRestaurant,setCurrent]=useState('')
   const [reviewCount,setReview]=useState('');
   const [name,setName]=useState('');
@@ -18,9 +18,9 @@ function App() {
   const [match,setMatch]=useState(false);
   const [matchCount,setCount]=useState(0);
   const [url, setUrl] = useState('')
-
+  const [restaurantCounter, setRestaurantCounter] = useState(1)
   return (
-    <AppContext.Provider value={{currentRestaurant,setCurrent,address,setAddress,rating,setRating,price,setPrice,phone,setPhone,name,setName,reviewCount,setReview,image,setImage,match,setMatch,matchCount,setCount,businessesResult, setBusinesses, url, setUrl}}>
+    <AppContext.Provider value={{currentRestaurant,setCurrent,address,setAddress,rating,setRating,price,setPrice,phone,setPhone,name,setName,reviewCount,setReview,image,setImage,match,setMatch,matchCount,setCount,businessesResult, setBusinesses, url, setUrl, restaurantCounter, setRestaurantCounter}}>
       <StoreProvider>
       <RootContainer />
     </StoreProvider>

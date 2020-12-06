@@ -11,10 +11,12 @@ function SearchUser(){
     }
 
     return(
+        <div class = "search">
         <form onSubmit={(e)=>e.preventDefault()}>
             <input onChange={(e)=>setEmail(e.target.value)} placeholder="Who are we munching with?"/>
             <button onClick={search}>Submit</button>
         </form>
+        </div>
     )
 }
 export default SearchUser;

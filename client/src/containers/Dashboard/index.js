@@ -7,6 +7,7 @@ import Navbar from "../../components/Navbar";
 import { AppContext } from '../../App'
 import "./style.css";
 import SearchUser from '../../components/SearchUser';
+import TinderCard from 'react-tinder-card'
 
 function Discover(props) {
   //Here we are importing the globalstate of our applicztion. Coming from the App.js
@@ -59,11 +60,19 @@ function Discover(props) {
       )
     }
   }
-
+  const onSwipe = (direction) => {
+    console.log('You swiped: ' + direction)
+    
+  }
+   
+  const onCardLeftScreen = (myIdentifier) => {
+    console.log(myIdentifier + ' left the screen')
+  }
   return (
-    <div>
+    <div class = "background">
       <Navbar />
       <SearchBar />
+      
       <h1 className="text-center">Find a new restaurant</h1>
       <h3 className="text-center">
         Like or swipe right if its a possible choice
@@ -74,13 +83,18 @@ function Discover(props) {
             {globalState.name}
           </h3>
           </div>
-      <Card image={globalState.image} handleBtnClick={handleBtnClick} />
+          <TinderCard onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen('fooBar')} preventSwipe={['right', 'left']}>
+      <Card image={globalState.image} handleBtnClick={handleBtnClick} > </Card></TinderCard>
       {restaurantRenderer()}
       <SearchUser/>
       </div>
       <h1 className="text-center">
         We have {globalState.matchCount} restaurant matches
-        </h1>
+  </h1>*/}
+   {/*<div className='buttons'>
+        <button onClick={() => onSwipe('left')}>Swipe left!</button>
+        <button onClick={() => onSwipe('right')}>Swipe right!</button>
+      </div>*/}
       {/* This is the alert that we are using when something goes wrong */}
       <Alert style={{ opacity: globalState.match ? 1 : 0 }} type="success">
         Found something to eat!!!
