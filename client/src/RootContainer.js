@@ -20,14 +20,12 @@ const [ready,setReady]=useState(true);
             setReady(false);;
         },error=>{
             setReady(false);
-            // setLoading(false);
         }).catch(error=>{
             setReady(false);
-            // setLoading(false);
         });
     },[]);
 
-console.log(state, 'line 27 rootcontatiner')
+// console.log(state, 'line 27 rootcontatiner')
     if(ready) {
         return <div>Loading...</div>
     } 

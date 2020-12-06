@@ -5,7 +5,7 @@ const md5=require("md5");
 module.exports = {
   register: function(req, res) {
     db.User.create({
-        email:req.body.email.toLowerCase(),
+        username:req.body.username.toLowerCase(),
         password:md5(req.body.password)
     })
       .then(dbModel => res.json(dbModel))
@@ -13,11 +13,11 @@ module.exports = {
   },
   findUser: function(req,res){
     db.User.find({
-      email:req.body.email.toLowerCase()
+      username:req.body.username.toLowerCase()
     }).then(dbUser=>{
       res.json(dbUser)
     }).catch(err=>{
       console.log("there was an error findind the user",err)
     })
-  }
+  },
 };

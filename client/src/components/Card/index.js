@@ -7,11 +7,7 @@ function Card(props) {
 
   const globalState = useContext(AppContext);
   console.log(globalState.restaurantCounter)
-  function nextRestaurant(){
-    globalState.setRestaurantCounter(globalState.restaurantCounter++)
-    console.log('running line 12')
-    // console.log(useBusinessSearch(finalTerm, finalLocation))
-  }
+  
 
   return (
 
@@ -28,11 +24,11 @@ function Card(props) {
       {!props.image && <div><img src={"https://user-images.githubusercontent.com/65417908/101260693-799fac80-36ff-11eb-90ff-aa1a486a61fa.png"}className="logo" aria-hidden="true"></img><p className="text">Fill out the form above to start swiping!</p></div>}
       {/* These are the buttons of the application. */}
       <CardBtn
-        onClick={props.handleBtnClick, nextRestaurant}
+        onClick={props.handleBtnClick}
         data-value="pass"
       />
       <CardBtn
-        onClick={props.handleBtnClick, nextRestaurant}
+        onClick={props.handleBtnClick}
         data-value="pick"
       />
     </div>

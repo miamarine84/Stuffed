@@ -14,10 +14,10 @@ module.exports = {
             db.User.findOne({
                 _id:jwtPayload._id
             }).then(userAccount=>{
-                if(!userAccount || md5(userAccount.email)!=jwtPayload.signature) {
+                if(!userAccount || md5(userAccount.username)!=jwtPayload.signature) {
                     res.sendStatus(401);
                 } else {
-                    const sessionToken=jwt.sign({_id:userAccount._id,signature:md5(userAccount.email)},"jwtsecretpassphrase");
+                    const sessionToken=jwt.sign({_id:userAccount._id,signature:md5(userAccount.username)},"jwtsecretpassphrase");
                     res.json({
                         name:userAccount.name,
                         token:sessionToken
@@ -32,13 +32,13 @@ module.exports = {
   },
   login: function(req, res) {
     db.User.findOne({
-        email:req.body.email.toLowerCase()
+        username:req.body.username.toLowerCase()
     })
       .then(userAccount => {
           if(!userAccount || userAccount.password!==md5(req.body.password)) {
               res.sendStatus(401);
           } else {
-            const sessionToken=jwt.sign({_id:userAccount._id,signature:md5(userAccount.email)},"jwtsecretpassphrase");
+            const sessionToken=jwt.sign({_id:userAccount._id,signature:md5(userAccount.username)},"jwtsecretpassphrase");
             res.json({
                 name:userAccount.name,
                 token:sessionToken
@@ -50,7 +50,7 @@ module.exports = {
   },
   signUp: function (req, res){
       db.User.create({
-          email:req.body.email.toLowerCase(),
+          username:req.body.username.toLowerCase(),
           password:md5(req.body.password)
       }).then(data=>{
           console.log("we were able to create your user");

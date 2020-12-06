@@ -14,30 +14,30 @@ import "./style.css";
 function LoginForm(props) {
   console.log(useEffect)
   //The states
-  const [email, setEmail] = useState("");
+  const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   //Making sure that the state and the application is running with react
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    if (name === "email") {
+    if (name === "username") {
       //Setting the value to the state
-      setEmail(value);
+      setUserName(value);
       console.log(value);
     } else if (name === "password") {
       setPassword(value);
       console.log(value);
     }
   };
-  //This function makes sure that the user is entering a valid email and password before allowing them to login
+  //This function makes sure that the user is entering a valid username and password before allowing them to login
   const logIn = async () => {
-    if (!email) {
-      alert("Please enter your email address");
+    if (!username) {
+      alert("Please enter your username address");
     } else if (!password) {
       alert("Please enter your account password");
     } else {
       try {
         //Making a request to the api to validate the user
-        const response = await API.logIn(email, password);
+        const response = await API.logIn(username, password);
         //When the user is validated we create a token for this user and this is how we will keep track of their account.
         props.onLogIn(response.data);
         console.log("success")
@@ -62,17 +62,17 @@ function LoginForm(props) {
         Login here:
       </h3>
       <Form className="formContainer" onSubmit={handleSubmit}>
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+        <Form.Group controlId="formBasicusername">
+          <Form.Label>username address</Form.Label>
           <Form.Control
             onChange={handleInputChange}
-            name="email"
-            value={email}
-            type="email"
-            placeholder="Enter email"
+            name="username"
+            value={username}
+            type="username"
+            placeholder="Enter username"
           />
           <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
+            We'll never share your username with anyone else.
           </Form.Text>
         </Form.Group>
 
