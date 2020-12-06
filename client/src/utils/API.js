@@ -17,10 +17,10 @@ export default {
       }
     })
   },
-  searchUser:function(email){
-    return axios.get("api/account/search",{username});
+  searchUser:function(username){
+    return axios.get("api/users/search",{"username":username});
   },
-  sendLikedDb:function(id){
-    return axios.post("/api/account/like",{"likedId":id});
+  liked:function(id){
+    return axios.put("/api/users/liked",{id});
   }
 };

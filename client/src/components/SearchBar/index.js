@@ -45,6 +45,7 @@ export function SearchBar(props) {
     if (globalState.currentRestaurant) {
       //Trying to set the state
       try{
+      globalState.setRestId(globalState.currentRestaurant.restId);
       globalState.setName(globalState.currentRestaurant.name);
       globalState.setReview(globalState.currentRestaurant.review_count);
       globalState.setPhone(globalState.currentRestaurant.phone);
@@ -54,7 +55,7 @@ export function SearchBar(props) {
       globalState.setImage(globalState.currentRestaurant.image_url);
       globalState.setUrl(globalState.currentRestaurant.url);
 
-      // console.log("This is the current restaurant information: ",globalState.currentRestaurant);
+      console.log("This is the current restaurant information: ",globalState.currentRestaurant);
       
       }catch(err){
         console.log("There was an error setting the state")

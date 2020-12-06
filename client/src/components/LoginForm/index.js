@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
 //Here we are importing the image that does above the form
 import FormImage from "../FormImage";
 //These are buttons and forms from an npm package
@@ -8,20 +8,20 @@ import { BrowserRouter as Redirect } from "react-router-dom";
 //These are all of our functions that contain api request
 import API from "../../utils/API";
 import "./style.css";
-
+import { AppContext } from "../../App";
 
 //This component takes the submit function as one of its props
 function LoginForm(props) {
+  const globalState=useContext(AppContext)
   console.log(useEffect)
   //The states
-  const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   //Making sure that the state and the application is running with react
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     if (name === "username") {
       //Setting the value to the state
-      setUserName(value);
+      globalState.setUserName(value);
       console.log(value);
     } else if (name === "password") {
       setPassword(value);
@@ -30,14 +30,14 @@ function LoginForm(props) {
   };
   //This function makes sure that the user is entering a valid username and password before allowing them to login
   const logIn = async () => {
-    if (!username) {
+    if (!globalState.username) {
       alert("Please enter your username address");
     } else if (!password) {
       alert("Please enter your account password");
     } else {
       try {
         //Making a request to the api to validate the user
-        const response = await API.logIn(username, password);
+        const response = await API.logIn(globalState.username, password);
         //When the user is validated we create a token for this user and this is how we will keep track of their account.
         props.onLogIn(response.data);
         console.log("success")
@@ -67,7 +67,7 @@ function LoginForm(props) {
           <Form.Control
             onChange={handleInputChange}
             name="username"
-            value={username}
+            value={globalState.username}
             type="username"
             placeholder="Enter username"
           />

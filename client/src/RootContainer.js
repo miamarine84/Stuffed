@@ -17,7 +17,7 @@ const [ready,setReady]=useState(true);
                 type:LOG_IN,
                 payload:response.data
             });
-            setReady(false);;
+            setReady(false);
         },error=>{
             setReady(false);
         }).catch(error=>{

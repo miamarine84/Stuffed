@@ -32,7 +32,7 @@ module.exports = {
   },
   login: function(req, res) {
     db.User.findOne({
-        username:req.body.username.toLowerCase()
+        username:req.body.username
     })
       .then(userAccount => {
           if(!userAccount || userAccount.password!==md5(req.body.password)) {
@@ -50,7 +50,7 @@ module.exports = {
   },
   signUp: function (req, res){
       db.User.create({
-          username:req.body.username.toLowerCase(),
+          username:req.body.username,
           password:md5(req.body.password)
       }).then(data=>{
           console.log("we were able to create your user");
@@ -59,6 +59,5 @@ module.exports = {
       }).catch(err=>{
           console.log(err)
       })
-    
   }
 };

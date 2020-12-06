@@ -1,23 +1,30 @@
 const db = require("../models");
-const md5=require("md5");
 
 // Defining methods for the postsController
 module.exports = {
-  register: function(req, res) {
-    db.User.create({
-        username:req.body.username.toLowerCase(),
-        password:md5(req.body.password)
-    })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(409).json(err));
-  },
-  findUser: function(req,res){
+  searchUser: function(req,res){
     db.User.find({
-      username:req.body.username.toLowerCase()
+        username:req.body.friend
     }).then(dbUser=>{
       res.json(dbUser)
     }).catch(err=>{
       console.log("there was an error findind the user",err)
     })
   },
+  liked: function(req,res){
+    db.User.update(
+      {
+        username:req.body.currentUser
+      },
+      {
+        $push:{likedRestaurants:req.body.button}
+      }
+    ).then(dbLiked=>{
+      res.json(dbLiked)
+    }).catch(err=>{
+      res.sendStatus(404)
+      console.log(err)
+    })
+  }
+
 };

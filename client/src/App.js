@@ -6,7 +6,8 @@ import RootContainer from './RootContainer';
 export const AppContext = createContext();
 
 function App() {
-  const [likedId,setLike]=useState(false);
+  const [username, setUserName] = useState("");
+  const [restId, setRestId]=useState('');
   const [businessesResult, setBusinesses]=useState([0]);
   const [currentRestaurant,setCurrent]=useState('')
   const [reviewCount,setReview]=useState('');
@@ -21,7 +22,7 @@ function App() {
   const [url, setUrl] = useState('');
   const [restaurantCounter, setRestaurantCounter] = useState(0);
   return (
-    <AppContext.Provider value={{currentRestaurant,setCurrent,address,setAddress,rating,setRating,price,setPrice,phone,setPhone,name,setName,reviewCount,setReview,image,setImage,match,setMatch,matchCount,setCount,businessesResult, setBusinesses, url, setUrl, restaurantCounter, setRestaurantCounter,likedId,setLike}}>
+    <AppContext.Provider value={{username, setUserName,restId, setRestId,currentRestaurant,setCurrent,address,setAddress,rating,setRating,price,setPrice,phone,setPhone,name,setName,reviewCount,setReview,image,setImage,match,setMatch,matchCount,setCount,businessesResult, setBusinesses, url, setUrl, restaurantCounter, setRestaurantCounter}}>
       <StoreProvider>
       <RootContainer />
     </StoreProvider>

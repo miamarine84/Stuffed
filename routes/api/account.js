@@ -1,9 +1,6 @@
 const authController=require('../../controllers/authController');
 const router = require("express").Router();
-
-
-
-// Matches with "/api/posts"
+//This is the route to sign up "api/signup"
 router.route("/signup").post(authController.signUp);
 
 module.exports = router;
