@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import API from "../../utils/API";
 import Card from "../../components/Card";
 import Alert from "../../components/Alert";
@@ -12,38 +12,38 @@ import TinderCard from "react-tinder-card";
 function Discover(props) {
   //Here we are importing the globalstate of our applicztion. Coming from the App.js
   const globalState = useContext(AppContext);
-
+  const [likedId, setLike] = useState("");
+  const loadNextRestaurant = () => {
+    //Here we need to handle the Next restaurant that need to be loaded.
+    globalState.setRestaurantCounter(globalState.restaurantCounter + 1);
+  };
   const handleBtnClick = (event) => {
     // Get the data-value of the clicked button, This value is coming from the Card component.
     console.log("this line works");
     const btnType = event.target.attributes.getNamedItem("data-value").value;
     restaurantRenderer();
-    console.log(btnType);
     // We'll modify this object and use it to set our component's state
     if (btnType === "pick") {
+      setLike(globalState.restId);
       //Here we have to save the restaurant into the database and compare this restaurant to the one on the other users array.
       //If they match we alert. Other wise nothing
-      const {id}=globalState.currentRestaurant;
-      console.log("This is the restaurant id: ",id);
-      
-    } else {
-      // If the restaurant is not liked set the match to false
+      console.log(likedId);
+      API.liked(likedId)
+        .then((res) => {
+          console.log("The like was successfull!!", res);
+        })
+        .catch((err) => {
+          console.log("Error with the like", err);
+        });
     }
     // Replace our component's state with newState, load the next dog image
     loadNextRestaurant();
   };
 
-  const loadNextRestaurant = () => {
-    //Here we need to handle the Next restaurant that need to be loaded.
-    globalState.setRestaurantCounter(globalState.restaurantCounter+1);
-  };
   function restaurantRenderer() {
     if (globalState.name) {
       return (
         <div className="info-container">
-          {/* <h3 className="restaurant-name">
-            {globalState.name}
-          </h3> */}
           <h6 className="restaurant-info">Price: {globalState.price}</h6>
           <h6 className="restaurant-info">
             Restaurant Rating: {globalState.rating}
@@ -69,6 +69,9 @@ function Discover(props) {
   return (
     <div class="background">
       <Navbar />
+      <p name="currentUser" value={globalState.username}>
+        Welcome{globalState.username}
+      </p>
       <SearchBar />
       <h1 className="text-center">Find a new restaurant</h1>
       <h3 className="text-center">
@@ -93,13 +96,17 @@ function Discover(props) {
       <h1 className="text-center">
         We have {globalState.matchCount} restaurant matches
       </h1>
-      */}
       {/*<div className='buttons'>
         <button onClick={() => onSwipe('left')}>Swipe left!</button>
         <button onClick={() => onSwipe('right')}>Swipe right!</button>
       </div>*/}
       {/* This is the alert that we are using when something goes wrong */}
-      <Alert style={{ opacity: globalState.match ? 1 : 0 }} type="success">
+      <Alert
+        name="restId"
+        value={globalState.restId}
+        style={{ opacity: globalState.match ? 1 : 0 }}
+        type="success"
+      >
         Found something to eat!!!
       </Alert>
     </div>

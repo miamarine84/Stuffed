@@ -6,7 +6,6 @@ import "./style.css";
 function Card(props) {
 
   const globalState = useContext(AppContext);
-  console.log(globalState.restaurantCounter)
   
 
   return (
