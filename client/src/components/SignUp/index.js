@@ -5,20 +5,20 @@ import API from "../../utils/API";
 import "./style.css";
 
 function SignUp(props) {
-  const [email, setEmail] = useState("");
+  const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    if (name === "email") {
-      setEmail(value);
+    if (name === "username") {
+      setUserName(value);
     } else if (name === "password") {
       setPassword(value);
     }
   };
   const signUp = () => {
-    console.log(email, password)
-    API.signUp(email, password).then(response => {
+    console.log(username, password)
+    API.signUp(username, password).then(response => {
       console.log("success");
     }).catch(err => {
       console.log(err)
@@ -37,17 +37,17 @@ function SignUp(props) {
         Sign Up here:
       </h3>
       <Form className="formContainer" onSubmit={handleSubmit}>
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+        <Form.Group>
+          <Form.Label>username address</Form.Label>
           <Form.Control
             onChange={handleInputChange}
-            name="email"
-            value={email}
-            type="email"
-            placeholder="Enter email"
+            name="username"
+            value={username}
+            type="text"
+            placeholder="Enter username"
           />
           <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
+            We'll never share your username with anyone else.
           </Form.Text>
         </Form.Group>
 
