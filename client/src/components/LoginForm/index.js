@@ -8,6 +8,8 @@ import { BrowserRouter as Redirect } from "react-router-dom";
 //These are all of our functions that contain api request
 import API from "../../utils/API";
 import "./style.css";
+
+
 //This component takes the submit function as one of its props
 function LoginForm(props) {
   console.log(useEffect)
@@ -44,6 +46,8 @@ function LoginForm(props) {
       }
     }
   };
+
+  
 //Making sure the the default event does not happen in the form 
 
   const handleSubmit = (event) => {
@@ -52,6 +56,7 @@ function LoginForm(props) {
 
   return (
     <div>
+      
       <FormImage className="formImage" />
       <h3>
         Login here:
