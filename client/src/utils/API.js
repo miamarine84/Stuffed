@@ -17,13 +17,7 @@ export default {
       }
     })
   },
-  getRestaurants: function () {
-    return axios.get({
-      baseURL: "https://api.yelp.com/v3/",
-      headers: {
-        Authorization: `Bearer ${API_KEY}`,
-        "Content-type": "application/json",
-      },
-    });
-  },
+  searchUser:function(email){
+    return axios.get("api/account/search",{email});
+  }
 };
