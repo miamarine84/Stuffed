@@ -39,7 +39,7 @@ export function SearchBar(props) {
     {
       globalState.businessesResult <= 0
         ? console.log("loading results...")
-        : globalState.setCurrent(globalState.businessesResult[1]);
+        : globalState.setCurrent(globalState.businessesResult[globalState.restaurantCounter]);
     }
     
     if (globalState.currentRestaurant) {
