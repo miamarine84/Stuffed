@@ -77,12 +77,12 @@ function Discover() {
   return (
     <div class="background">
       <Navbar />
-      <p name="currentUser" value={globalState.username}>
-        Welcome {globalState.userName}
+      <p className="username" name="currentUser" value={globalState.username}>
+        Welcome {globalState.username}
       </p>
       <SearchBar />
       <h1 className="text-center">Find a new restaurant</h1>
-      <h3 className="text-center">
+      <h3 className="likeorswipe">
         Like or swipe right if its a possible choice
       </h3>
       <div className="container-div">
