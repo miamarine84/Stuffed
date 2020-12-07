@@ -12,7 +12,7 @@ import TinderCard from "react-tinder-card";
 function Discover(props) {
   //Here we are importing the globalstate of our applicztion. Coming from the App.js
   const globalState = useContext(AppContext);
-  const [likedId, setLike] = useState("");
+
   const loadNextRestaurant = () => {
     //Here we need to handle the Next restaurant that need to be loaded.
     globalState.setRestaurantCounter(globalState.restaurantCounter + 1);
@@ -24,13 +24,17 @@ function Discover(props) {
     restaurantRenderer();
     // We'll modify this object and use it to set our component's state
     if (btnType === "pick") {
-      setLike(globalState.currentRestaurant);
-      //Here we have to save the restaurant into the database and compare this restaurant to the one on the other users array.
-      //If they match we alert. Other wise nothing
 
-      API.liked(likedId, globalState.userName)
+    let restaurantId = globalState.currentRestaurant.id
+      globalState.setLikedId(restaurantId)
+      console.log(globalState.likedId)
+      console.log(globalState.userName)
+      // This may be the reason why this is not working userName is not being set properly I have to take off now but that is the other parameter that is missing to make a proper axios call check console.log line 31 to see it's empty
+      console.log(globalState.userName)
+
+      API.liked(globalState.likedId, )
         .then((res) => {
-          console.log("The like was successfull!!", likedId, res);
+          console.log("The like was successfull!!", globalState.likedId, res);
         })
         .catch((err) => {
           console.log("Error with the like", err);
