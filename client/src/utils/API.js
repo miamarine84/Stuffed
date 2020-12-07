@@ -22,7 +22,6 @@ export default {
   },
   liked:function(likedId, currentUser){
     console.log(likedId, currentUser)
-    console.log("AXIOS READY")
     return axios.put(`api/liked/sendLike?likedId=${likedId}&currentUser=${currentUser}`);
   }
 };

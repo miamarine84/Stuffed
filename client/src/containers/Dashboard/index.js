@@ -26,15 +26,18 @@ function Discover() {
 
     // We'll modify this object and use it to set our component's state
     if (btnType === "pick") {
+      
       let restaurantId = globalState.currentRestaurant.id;
       globalState.setLikedId(restaurantId);
-      console.log(globalState.likedId);
-      console.log(globalState.userName);
+      console.log("This is the liked id",globalState.likedId);
+      console.log("This is the username of the current user logged in",globalState.userName);
+      
+      
       // This may be the reason why this is not working userName is not being set properly I have to take off now but that is the other parameter that is missing to make a proper axios call check console.log line 31 to see it's empty
 
       API.liked(globalState.likedId, globalState.userName)
         .then((res) => {
-          console.log("The like was successfull!!", globalState.likedId, res);
+         console.log("this is the like : ",res)
         })
         .catch((err) => {
           console.log("Error with the like", err);
@@ -43,6 +46,10 @@ function Discover() {
     // Here we are loading the next restaurant and rendering the information of it.
     loadNextRestaurant();
     restaurantRenderer();
+  };
+  //handling the swipe
+  const onSwipe = (direction) => {
+    setSwipe(direction);
   };
   //listening to the direction
   useEffect(()=>{
@@ -69,16 +76,14 @@ function Discover() {
       );
     }
   }
-  const onSwipe = (direction) => {
-    setSwipe(direction);
-  };
+  
 
   
   return (
     <div class="background">
       <Navbar />
-      <p className="username" name="currentUser" value={globalState.username}>
-        Welcome {globalState.username}
+      <p className="username" name="currentUser" value={globalState.userName}>
+        Welcome {globalState.userName}
       </p>
       <SearchBar />
       <h1 className="text-center">Find a new restaurant</h1>
@@ -93,7 +98,7 @@ function Discover() {
           onSwipe={onSwipe}
           preventSwipe={["right", "left","up"]}
         >
-          <Card image={globalState.image} handleBtnClick={handleBtnClick}>
+          <Card value={globalState.restId} image={globalState.image} handleBtnClick={handleBtnClick}>
             {" "}
           </Card>
         </TinderCard>
@@ -104,10 +109,6 @@ function Discover() {
       <h1 className="restaurant-matches">
         We have {globalState.matchCount} restaurant matches
       </h1>
-      {/*<div className='buttons'>
-        <button onClick={() => onSwipe('left')}>Swipe left!</button>
-        <button onClick={() => onSwipe('right')}>Swipe right!</button>
-      </div>*/}
       {/* This is the alert that we are using when something goes wrong */}
       <Alert
         name="restId"

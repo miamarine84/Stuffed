@@ -54,7 +54,6 @@ export function SearchBar(props) {
       globalState.setAddress(globalState.currentRestaurant.location);
       globalState.setImage(globalState.currentRestaurant.image_url);
       globalState.setUrl(globalState.currentRestaurant.url);
-
       console.log("This is the current restaurant information: ",globalState.currentRestaurant);
       
       }catch(err){
@@ -97,7 +96,7 @@ export function SearchBar(props) {
           onClick={submit, setRestaurant()}
         ></div>
         <p className="control">
-          <button className={`button is-static`}>Search</button>
+          <button  className={`button is-static`}>Search</button>
         </p>
       </div>
     </form>
