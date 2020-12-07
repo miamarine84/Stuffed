@@ -26,23 +26,22 @@ function Discover() {
 
     // We'll modify this object and use it to set our component's state
     if (btnType === "pick") {
-      if(globalState.currentRestaurant){
+      
       let restaurantId = globalState.currentRestaurant.id;
-
       globalState.setLikedId(restaurantId);
       console.log("This is the liked id",globalState.likedId);
       console.log("This is the username of the current user logged in",globalState.userName);
-      }
+      
       
       // This may be the reason why this is not working userName is not being set properly I have to take off now but that is the other parameter that is missing to make a proper axios call check console.log line 31 to see it's empty
 
-      // API.liked(globalState.likedId, globalState.userName)
-      //   .then((res) => {
-      //     console.log("The like was successfull!!", globalState.likedId, res);
-      //   })
-      //   .catch((err) => {
-      //     console.log("Error with the like", err);
-      //   });
+      API.liked(globalState.likedId, globalState.userName)
+        .then((res) => {
+         console.log("this is the like : ",res)
+        })
+        .catch((err) => {
+          console.log("Error with the like", err);
+        });
     }
     // Here we are loading the next restaurant and rendering the information of it.
     loadNextRestaurant();
@@ -99,7 +98,7 @@ function Discover() {
           onSwipe={onSwipe}
           preventSwipe={["right", "left","up"]}
         >
-          <Card image={globalState.image} handleBtnClick={handleBtnClick}>
+          <Card value={globalState.restId} image={globalState.image} handleBtnClick={handleBtnClick}>
             {" "}
           </Card>
         </TinderCard>

@@ -96,7 +96,7 @@ export function SearchBar(props) {
           onClick={submit, setRestaurant()}
         ></div>
         <p className="control">
-          <button className={`button is-static`}>Search</button>
+          <button  className={`button is-static`}>Search</button>
         </p>
       </div>
     </form>

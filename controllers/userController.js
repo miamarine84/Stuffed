@@ -14,15 +14,19 @@ module.exports = {
     })
   },
   liked: function (req, res) {
-    db.User.update(
+    console.log("this is the query informatin: ", req.query.likedId,req.query.currentUser)
+    const currentUser=req.query.currentUser;
+    const likedId =req.query.likedId;
+    db.User.updateOne(
       {
-        username: req.query.currentUser
+        username:currentUser
       },
       {
-        $push: {likedRestaurants: req.query.likedId }
+        $push: {likedRestaurants:likedId }
       }
     ).then(dbLiked => {
       res.json(dbLiked)
+      console.log("the dbLiked: ",dbLiked)
     }).catch(err => {
       res.sendStatus(404)
       console.log(err)
