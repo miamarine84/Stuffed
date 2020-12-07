@@ -34,9 +34,11 @@ const HomePage = () => {
               to find a restaurant you are both in the mood for, simply swipe through
               a list of restaurants nearby! Swiping left is a "NO!", swiping right
               is an "Ohhhh yeah". Once you both swipe right on the same restaurant, <i>Stuff'd</i> will notify you of your match, and just like that you've
-              agreed on a place to eat in no time! What are you waiting for? Visit the
-              discover page to start swiping. 
+              agreed on a place to eat in no time! What are you waiting for? Insert the username
+              of the person you want to eat with to start swiping!<br /><br />
+              <p className="stuffd-text">Who do you want to get <i>Stuff'd</i> with?</p>
             </p>
+            
             <SearchUser />
           </Col>
         </Row>

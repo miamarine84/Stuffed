@@ -17,12 +17,18 @@ module.exports = {
     console.log("this is the query informatin: ", req.query.likedId,req.query.currentUser)
     const currentUser=req.query.currentUser;
     const likedId =req.query.likedId;
+    console.log({
+        username:currentUser
+      },
+      {
+        $push: {likedRestaurants:likedId}
+      })
     db.User.updateOne(
       {
         username:currentUser
       },
       {
-        $push: {likedRestaurants:likedId }
+        $push: {likedRestaurants:likedId}
       }
     ).then(dbLiked => {
       res.json(dbLiked)
