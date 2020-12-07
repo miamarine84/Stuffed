@@ -10,7 +10,7 @@ import "./style.css";
 
 const HomePage = () => {
   return (
-    <div>
+    <div class = "background1">
       <Navbar />
       <Hero backgroundImage="https://www.maxim.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_700/MTYyNjIzMzE0MjgyNDIzMzM2/gettyimages-684757538.webp">
         <h2>Let's choose our next restaurant!</h2>

@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { AppContext } from "../../App";
 import CardBtn from "../CardBtn";
 import "./style.css";
 //This is the card component.
 function Card(props) {
 
+  const globalState = useContext(AppContext);
+  
+
   return (
+
     <div
       className="card"
       // it gets the value of the image from the props of this element

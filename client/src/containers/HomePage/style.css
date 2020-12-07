@@ -1,5 +1,6 @@
-body {
+.background1 {
     background-image: url(../../Images/homePageBack.png);
+    background-size: cover;
 }
 
 h1 {

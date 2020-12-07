@@ -4,11 +4,11 @@ const API_KEY =
   "rOqZ40BALDTYj0--V9eVOtKW6u-Apb51CP-HdsARpfAvVC_ajs6DHng_LigAuhjZQOEW3EH4AatCtkTBiCt8IomSAlHIIHexk65DlcW9gMXLz-hoAX1IA3tXeTK8X3Yx";
 
 export default {
-  logIn:function(email,password) {
-    return axios.post("/api/auth/login",{email,password});
+  logIn:function(username,password) {
+    return axios.post("/api/auth/login",{username,password});
   },
-  signUp:function(email,password) {
-    return axios.post("/api/account/signup",{"email": email, "password": password});
+  signUp:function(username,password) {
+    return axios.post("/api/account/signup",{"username": username, "password": password});
   },
   verifyAuthentication:function() {
     return axios.get("/api/auth/login",{
@@ -17,13 +17,12 @@ export default {
       }
     })
   },
-  getRestaurants: function () {
-    return axios.get({
-      baseURL: "https://api.yelp.com/v3/",
-      headers: {
-        Authorization: `Bearer ${API_KEY}`,
-        "Content-type": "application/json",
-      },
-    });
+  searchUser:function(username){
+    return axios.get(`api/users/search?username=${username}`);
   },
+  liked:function(likedId, userName){
+    console.log(likedId, userName)
+    console.log("AXIOS READY")
+    return axios.put("/api/liked/liked",{"username": userName, "liked": likedId });
+  }
 };

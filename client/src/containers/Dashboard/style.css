@@ -1,4 +1,4 @@
-body {
+.background {
     background-image: url(../../Images/dashback1.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -40,7 +40,14 @@ body {
 .restaurant-info{
     font-size:20px;
     color:black;
-    /* margin-left: 30px; */
+  
+    text-align: center;
+}
+
+.restaurant-matches{
+    font-size:50px;
+    color:black;
+    margin-top: 8%;
     text-align: center;
 }
 
@@ -50,3 +57,27 @@ a {
 a:hover{
     color: rgb(107, 13, 13);
 }
+
+/*.buttons {
+    margin: 20px;
+    display: flex;
+  }
+
+  .buttons button {
+    flex-shrink: 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    background-color: #9198e5;
+    transition: 200ms;
+    margin: 0 10px;
+    font-weight: bolder;
+    width: 160px;
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.10);
+  }
+  
+  .buttons button:hover {
+    transform: scale(1.05);
+  }*/
