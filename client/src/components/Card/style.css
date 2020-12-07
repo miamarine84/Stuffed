@@ -3,15 +3,19 @@
   background-position: center;
   background-clip: content-box;
   border: 6px solid white;
-  height: 400px;
-  width: 400px;
+  height:60vh ;
+  width: 600px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   position: relative;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 40px;
   background: rgba(238, 192, 192, 0.658);
- 
-
+  padding: 20px;
+  max-width: 85vw;
+  box-shadow: 0px 18px 53px 0px rgba(0,0,0,0.3 alpha);
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
 }
 
 .logo {

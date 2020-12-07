@@ -95,10 +95,11 @@ function Discover(props) {
             {" "}
           </Card>
         </TinderCard>
-        {restaurantRenderer()}
+        <h1 className="restaurant-info">
+        {restaurantRenderer()}</h1>
         <SearchUser />
       </div>
-      <h1 className="text-center">
+      <h1 className="restaurant-matches">
         We have {globalState.matchCount} restaurant matches
       </h1>
       {/*<div className='buttons'>

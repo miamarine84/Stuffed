@@ -40,7 +40,14 @@
 .restaurant-info{
     font-size:20px;
     color:black;
-    /* margin-left: 30px; */
+  
+    text-align: center;
+}
+
+.restaurant-matches{
+    font-size:50px;
+    color:black;
+    margin-top: 8%;
     text-align: center;
 }
 
