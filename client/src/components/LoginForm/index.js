@@ -104,8 +104,22 @@ function LoginForm(props) {
           Login
         </Button>
             </Link>
-        
+            <Form.Group controlId="formBasicusername">        
+        <Form.Label>Don't have an account? 
+        </Form.Label>
+        </Form.Group>
+        <Form.Group controlId="formBasicusername"> 
+        <Form.Label>
+          <Link  to="/signup"
+              className={
+                window.location.pathname === "/" ||
+                  window.location.pathname === "/signup"
+              }>
+                <Button className="signup-button">Click here to sign up</Button></Link>
+                </Form.Label>
+      </Form.Group>
       </Form>
+
     </div>
   );
 }
