@@ -17,17 +17,15 @@ const [ready,setReady]=useState(true);
                 type:LOG_IN,
                 payload:response.data
             });
-            setReady(false);;
+            setReady(false);
         },error=>{
             setReady(false);
-            // setLoading(false);
         }).catch(error=>{
             setReady(false);
-            // setLoading(false);
         });
     },[]);
 
-console.log(state, 'line 27 rootcontatiner')
+// console.log(state, 'line 27 rootcontatiner')
     if(ready) {
         return <div>Loading...</div>
     } 

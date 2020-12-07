@@ -1,24 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, {useState,useContext } from "react";
 import FormImage from "../FormImage";
 import { Form, Button } from "react-bootstrap";
 import API from "../../utils/API";
 import "./style.css";
+import { AppContext } from "../../App";
 
-function SignUp(props) {
-  const [email, setEmail] = useState("");
+function SignUp() {
+  const globalState=useContext(AppContext);
   const [password, setPassword] = useState("");
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    if (name === "email") {
-      setEmail(value);
+    if (name === "username") {
+      globalState.setUserName(value);
     } else if (name === "password") {
       setPassword(value);
     }
   };
   const signUp = () => {
-    console.log(email, password)
-    API.signUp(email, password).then(response => {
+    console.log(globalState.userName, password)
+    API.signUp(globalState.userName, password).then(response => {
       console.log("success");
     }).catch(err => {
       console.log(err)
@@ -37,17 +38,17 @@ function SignUp(props) {
         Sign Up here:
       </h3>
       <Form className="formContainer" onSubmit={handleSubmit}>
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+        <Form.Group>
+          <Form.Label>username address</Form.Label>
           <Form.Control
             onChange={handleInputChange}
-            name="email"
-            value={email}
-            type="email"
-            placeholder="Enter email"
+            name="username"
+            value={globalState.userName}
+            type="text"
+            placeholder="Enter username"
           />
           <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
+            We'll never share your username with anyone else.
           </Form.Text>
         </Form.Group>
 

@@ -6,14 +6,32 @@
 }
 
 .info-container {
+    background-size: cover;
+    background-position: center;
     margin-top: 10px;
     width: 80%;
     margin-left: 10%;
-    border-radius: 10px;
-   
+    border-radius: 20px;
+    border: 6px solid white;
+    height:20vh ;
+    width: 600px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    position: relative;
+    margin: 0 auto;
+    margin-top: 40px;
+    background: rgba(238, 192, 192, 0.658);
+    padding: 20px;
+    max-width: 85vw;
+    background-size: cover;
+   background-position: center;
+  
+
 }
 
 .restaurant-name{
+    max-width: 85vw;
+    margin: 0 auto;
+    position: relative;
     margin-top: 10px;
     text-align: center;
     font-weight: bold;
@@ -40,7 +58,14 @@
 .restaurant-info{
     font-size:20px;
     color:black;
-    /* margin-left: 30px; */
+  
+    text-align: center;
+}
+
+.restaurant-matches{
+    font-size:50px;
+    color:black;
+    margin-top: 8%;
     text-align: center;
 }
 

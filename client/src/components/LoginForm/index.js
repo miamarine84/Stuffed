@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
 //Here we are importing the image that does above the form
 import FormImage from "../FormImage";
 //These are buttons and forms from an npm package
@@ -6,6 +6,7 @@ import { Form, Button } from "react-bootstrap";
 //This will be used for us to Redirect the user to their home page.
 import { BrowserRouter as Redirect } from "react-router-dom";
 //These are all of our functions that contain api request
+import { AppContext } from "../../App";
 import API from "../../utils/API";
 import "./style.css";
 
@@ -14,30 +15,30 @@ import "./style.css";
 function LoginForm(props) {
   console.log(useEffect)
   //The states
-  const [email, setEmail] = useState("");
+  const globalState=useContext(AppContext);
   const [password, setPassword] = useState("");
   //Making sure that the state and the application is running with react
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    if (name === "email") {
+    if (name === "username") {
       //Setting the value to the state
-      setEmail(value);
+      globalState.setUserName(value);
       console.log(value);
     } else if (name === "password") {
       setPassword(value);
       console.log(value);
     }
   };
-  //This function makes sure that the user is entering a valid email and password before allowing them to login
+  //This function makes sure that the user is entering a valid username and password before allowing them to login
   const logIn = async () => {
-    if (!email) {
-      alert("Please enter your email address");
+    if (!globalState.userName) {
+      alert("Please enter your username address");
     } else if (!password) {
       alert("Please enter your account password");
     } else {
       try {
         //Making a request to the api to validate the user
-        const response = await API.logIn(email, password);
+        const response = await API.logIn(globalState.userName, password);
         //When the user is validated we create a token for this user and this is how we will keep track of their account.
         props.onLogIn(response.data);
         console.log("success")
@@ -62,17 +63,17 @@ function LoginForm(props) {
         Login here:
       </h3>
       <Form className="formContainer" onSubmit={handleSubmit}>
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+        <Form.Group controlId="formBasicusername">
+          <Form.Label>username address</Form.Label>
           <Form.Control
             onChange={handleInputChange}
-            name="email"
-            value={email}
-            type="email"
-            placeholder="Enter email"
+            name="username"
+            value={globalState.userName}
+            type="username"
+            placeholder="Enter username"
           />
           <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
+            We'll never share your username with anyone else.
           </Form.Text>
         </Form.Group>
 
