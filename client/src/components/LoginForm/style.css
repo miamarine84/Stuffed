@@ -11,7 +11,11 @@
 }
 
 h3 {
-    margin-left: 120px;
+    margin-left: 25%;
     font-family: 'Sansita Swashed', cursive;;
+}
+
+.login-btn {
+    margin-bottom:40px;
 }
 

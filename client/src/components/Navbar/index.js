@@ -87,7 +87,7 @@ function Navbar(props) {
                   : "nav-links"
               }
             >
-              <h5>logout</h5>
+              <h5>Logout</h5>
             </Link>) : (<Link
               to="/login"
               className={

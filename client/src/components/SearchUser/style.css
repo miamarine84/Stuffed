@@ -1,0 +1,16 @@
+.submit-btn{
+    margin-left: 41%;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.submit-btn:hover{
+    height:40px;
+    width:69px;
+}
+
+.search-bar {
+    margin-left:22.5%;
+    width:52%;
+    margin-top:-10px;
+}
