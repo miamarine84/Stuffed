@@ -17,8 +17,10 @@ function SearchUser(){
 
     return(
         <div className = "search">
+           
         <form onSubmit={(e)=>e.preventDefault()}>
-            <input className="search-bar form-control" username={username} onChange={(e)=>setUserName(e.target.value)} placeholder="Who do you want to get Stuff'd with?"/>
+            
+            <input className="search-bar form-control" username={username} onChange={(e)=>setUserName(e.target.value)} placeholder="Please Enter a Username"/>
             <Link
               to="/dashboard"
               className={
