@@ -20,7 +20,9 @@ export default {
   searchUser:function(username){
     return axios.get("api/users/search",{"username":username});
   },
-  liked:function(id){
-    return axios.put("/api/users/liked",{id});
+  liked:function(likedId, userName){
+    console.log(likedId, userName)
+    console.log("AXIOS READY")
+    return axios.post("/api/liked/liked",{"username": userName, "liked": likedId });
   }
 };
