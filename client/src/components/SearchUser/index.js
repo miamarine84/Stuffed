@@ -1,5 +1,9 @@
 import React,{useState} from 'react';
 import API from '../../utils/API'
+import Dashboard from '../../containers/Dashboard'
+import { BrowserRouter as Router, Route, Switch,Redirect } from "react-router-dom"; 
+import { Link } from "react-router-dom";
+import "./style.css";
 function SearchUser(){
     const [username,setUserName]=useState('');
 
@@ -13,10 +17,17 @@ function SearchUser(){
     }
 
     return(
-        <div class = "search">
+        <div className = "search">
         <form onSubmit={(e)=>e.preventDefault()}>
-            <input username={username} onChange={(e)=>setUserName(e.target.value)} placeholder="Who are we munching with?"/>
-            <button onClick={search}>Submit</button>
+            <input className="search-bar form-control" username={username} onChange={(e)=>setUserName(e.target.value)} placeholder="Who do you want to get Stuff'd with?"/>
+            <Link
+              to="/dashboard"
+              className={
+                window.location.pathname === "/" ||
+                  window.location.pathname === "/dashboard"
+              }
+            ><button className="submit-btn"onClick={search}>Submit</button>
+            </Link>
         </form>
         </div>
     )

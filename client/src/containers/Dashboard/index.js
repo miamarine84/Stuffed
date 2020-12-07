@@ -74,7 +74,7 @@ function Discover(props) {
   return (
     <div class="background">
       <Navbar />
-      <p name="currentUser" value={globalState.username}>
+      <p className="username" name="currentUser" value={globalState.username}>
         Welcome{globalState.username}
       </p>
       <SearchBar />

@@ -63,7 +63,7 @@ function LoginForm(props) {
       </h3>
       <Form className="formContainer" onSubmit={handleSubmit}>
         <Form.Group controlId="formBasicusername">
-          <Form.Label>username address</Form.Label>
+          <Form.Label>Username</Form.Label>
           <Form.Control
             onChange={handleInputChange}
             name="username"

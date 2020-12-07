@@ -38,7 +38,7 @@
 }
 
 .restaurant-info{
-    font-size:20px;
+    font-size:28px;
     color:black;
   
     text-align: center;
@@ -56,6 +56,10 @@ a {
 }
 a:hover{
     color: rgb(107, 13, 13);
+}
+
+.username{
+    font-size:30px;
 }
 
 /*.buttons {
