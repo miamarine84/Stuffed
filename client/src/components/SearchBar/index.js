@@ -54,7 +54,6 @@ export function SearchBar(props) {
       globalState.setAddress(globalState.currentRestaurant.location);
       globalState.setImage(globalState.currentRestaurant.image_url);
       globalState.setUrl(globalState.currentRestaurant.url);
-
       console.log("This is the current restaurant information: ",globalState.currentRestaurant);
       
       }catch(err){

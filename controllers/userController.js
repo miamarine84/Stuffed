@@ -19,7 +19,7 @@ module.exports = {
         username: req.query.currentUser
       },
       {
-        $push: { likedRestaurants: req.query.likedId }
+        $push: {likedRestaurants: req.query.likedId }
       }
     ).then(dbLiked => {
       res.json(dbLiked)
