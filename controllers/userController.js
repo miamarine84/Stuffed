@@ -3,9 +3,11 @@ const db = require("../models");
 // Defining methods for the postsController
 module.exports = {
   searchUser: function (req, res) {
+    
     db.User.find({
-      username: req.body.friend
+      username: req.query.username
     }).then(dbUser => {
+      console.log("This is the username:",req.query.username)
       res.json(dbUser)
     }).catch(err => {
       console.log("there was an error findind the user", err)

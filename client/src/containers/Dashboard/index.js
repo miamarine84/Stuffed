@@ -21,7 +21,7 @@ function Discover(props) {
     // Get the data-value of the clicked button, This value is coming from the Card component.
     console.log("this line works");
     const btnType = event.target.attributes.getNamedItem("data-value").value;
-    restaurantRenderer();
+    
     // We'll modify this object and use it to set our component's state
     if (btnType === "pick") {
 
@@ -32,7 +32,7 @@ function Discover(props) {
       // This may be the reason why this is not working userName is not being set properly I have to take off now but that is the other parameter that is missing to make a proper axios call check console.log line 31 to see it's empty
       console.log(globalState.userName)
 
-      API.liked(globalState.likedId, )
+      API.liked(globalState.likedId,globalState.userName )
         .then((res) => {
           console.log("The like was successfull!!", globalState.likedId, res);
         })
@@ -40,8 +40,9 @@ function Discover(props) {
           console.log("Error with the like", err);
         });
     }
-    // Replace our component's state with newState, load the next dog image
+    // Here we are loading the next restaurant and rendering the information of it.
     loadNextRestaurant();
+    restaurantRenderer();
   };
 
   function restaurantRenderer() {

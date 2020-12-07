@@ -5,7 +5,7 @@ function SearchUser(){
 
    
 
-    const search =()=>{
+    const search =async()=>{
         //Here i am hitting the search route for the user, but the data is null
         API.searchUser(username).then(res=>{    
         console.log("it worked: ", res)
@@ -15,7 +15,7 @@ function SearchUser(){
     return(
         <div class = "search">
         <form onSubmit={(e)=>e.preventDefault()}>
-            <input friend={username} onChange={(e)=>setUserName(e.target.value)} placeholder="Who are we munching with?"/>
+            <input username={username} onChange={(e)=>setUserName(e.target.value)} placeholder="Who are we munching with?"/>
             <button onClick={search}>Submit</button>
         </form>
         </div>
