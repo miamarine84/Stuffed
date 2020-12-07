@@ -7,6 +7,7 @@ import { Form, Button } from "react-bootstrap";
 import { BrowserRouter as Redirect } from "react-router-dom";
 //These are all of our functions that contain api request
 import { AppContext } from "../../App";
+import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import "./style.css";
 
@@ -87,9 +88,23 @@ function LoginForm(props) {
             placeholder="Password"
           />
         </Form.Group>
-        <Button onClick={logIn} variant="primary" type="submit">
+
+
+
+
+
+        <Link
+              to="/home"
+              className={
+                window.location.pathname === "/" ||
+                  window.location.pathname === "/home"
+              }
+            >
+             <Button onClick={logIn} variant="primary" type="submit">
           Login
         </Button>
+            </Link>
+        
       </Form>
     </div>
   );
