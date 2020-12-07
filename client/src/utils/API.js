@@ -20,9 +20,9 @@ export default {
   searchUser:function(username){
     return axios.get(`api/users/search?username=${username}`);
   },
-  liked:function(likedId, userName){
-    console.log(likedId, userName)
+  liked:function(likedId, currentUser){
+    console.log(likedId, currentUser)
     console.log("AXIOS READY")
-    return axios.put("/api/liked/liked",{"username": userName, "liked": likedId });
+    return axios.put(`api/liked/sendLike?likedId=${likedId}&currentUser=${currentUser}`);
   }
 };

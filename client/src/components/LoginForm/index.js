@@ -6,14 +6,16 @@ import { Form, Button } from "react-bootstrap";
 //This will be used for us to Redirect the user to their home page.
 import { BrowserRouter as Redirect } from "react-router-dom";
 //These are all of our functions that contain api request
+import { AppContext } from "../../App";
 import API from "../../utils/API";
 import "./style.css";
-import { AppContext } from "../../App";
+
 
 //This component takes the submit function as one of its props
 function LoginForm(props) {
-  const globalState=useContext(AppContext)
+  console.log(useEffect)
   //The states
+  const globalState=useContext(AppContext);
   const [password, setPassword] = useState("");
   //Making sure that the state and the application is running with react
   const handleInputChange = (event) => {
@@ -21,13 +23,14 @@ function LoginForm(props) {
     if (name === "username") {
       //Setting the value to the state
       globalState.setUserName(value);
+      console.log(value);
     } else if (name === "password") {
       setPassword(value);
+      console.log(value);
     }
   };
   //This function makes sure that the user is entering a valid username and password before allowing them to login
   const logIn = async () => {
-    console.log(globalState.userName)
     if (!globalState.userName) {
       alert("Please enter your username address");
     } else if (!password) {
@@ -35,7 +38,6 @@ function LoginForm(props) {
     } else {
       try {
         //Making a request to the api to validate the user
-
         const response = await API.logIn(globalState.userName, password);
         //When the user is validated we create a token for this user and this is how we will keep track of their account.
         props.onLogIn(response.data);
@@ -44,7 +46,6 @@ function LoginForm(props) {
         alert("Invalid credentials!");
       }
     }
-
   };
 
   
@@ -67,7 +68,7 @@ function LoginForm(props) {
           <Form.Control
             onChange={handleInputChange}
             name="username"
-            value={globalState.username}
+            value={globalState.userName}
             type="username"
             placeholder="Enter username"
           />

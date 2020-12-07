@@ -11,7 +11,7 @@ function SearchUser(){
 
     const search =async()=>{
         //Here i am hitting the search route for the user, but the data is null
-        API.searchUser(username).then(res=>{    
+        API.searchUser(username).then(res=>{   
         console.log("it worked: ", res)
         }).catch(err=>console.log(err));
     }
