@@ -90,11 +90,8 @@ function Discover(props) {
       </div>
       <h1 className="text-center">
         We have {globalState.matchCount} restaurant matches
-  </h1>*/}
-   {/*<div className='buttons'>
-        <button onClick={() => onSwipe('left')}>Swipe left!</button>
-        <button onClick={() => onSwipe('right')}>Swipe right!</button>
-      </div>*/}
+      </h1>
+  
       {/* This is the alert that we are using when something goes wrong */}
       <Alert style={{ opacity: globalState.match ? 1 : 0 }} type="success">
         Found something to eat!!!
