@@ -13,7 +13,6 @@ import { AppContext } from "../../App";
 //This component takes the submit function as one of its props
 function LoginForm(props) {
   const globalState=useContext(AppContext)
-  console.log(useEffect)
   //The states
   const [password, setPassword] = useState("");
   //Making sure that the state and the application is running with react
@@ -22,22 +21,22 @@ function LoginForm(props) {
     if (name === "username") {
       //Setting the value to the state
       globalState.setUserName(value);
-      console.log(value);
     } else if (name === "password") {
       setPassword(value);
-      console.log(value);
     }
   };
   //This function makes sure that the user is entering a valid username and password before allowing them to login
   const logIn = async () => {
-    if (!globalState.username) {
+    console.log(globalState.userName)
+    if (!globalState.userName) {
       alert("Please enter your username address");
     } else if (!password) {
       alert("Please enter your account password");
     } else {
       try {
         //Making a request to the api to validate the user
-        const response = await API.logIn(globalState.username, password);
+
+        const response = await API.logIn(globalState.userName, password);
         //When the user is validated we create a token for this user and this is how we will keep track of their account.
         props.onLogIn(response.data);
         console.log("success")
@@ -45,6 +44,7 @@ function LoginForm(props) {
         alert("Invalid credentials!");
       }
     }
+
   };
 
   

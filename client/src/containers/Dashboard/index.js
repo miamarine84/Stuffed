@@ -24,13 +24,13 @@ function Discover(props) {
     restaurantRenderer();
     // We'll modify this object and use it to set our component's state
     if (btnType === "pick") {
-      setLike(globalState.restId);
+      setLike(globalState.currentRestaurant);
       //Here we have to save the restaurant into the database and compare this restaurant to the one on the other users array.
       //If they match we alert. Other wise nothing
-      console.log(likedId);
-      API.liked(likedId)
+
+      API.liked(likedId, globalState.userName)
         .then((res) => {
-          console.log("The like was successfull!!", res);
+          console.log("The like was successfull!!", likedId, res);
         })
         .catch((err) => {
           console.log("Error with the like", err);
