@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState ,useEffect} from "react";
 import API from "../../utils/API";
 import Card from "../../components/Card";
 import Alert from "../../components/Alert";
@@ -9,30 +9,30 @@ import "./style.css";
 
 import TinderCard from "react-tinder-card";
 
-function Discover(props) {
+function Discover() {
   //Here we are importing the globalstate of our applicztion. Coming from the App.js
   const globalState = useContext(AppContext);
-
+  const [direction,setSwipe]= useState('');
   const loadNextRestaurant = () => {
     //Here we need to handle the Next restaurant that need to be loaded.
     globalState.setRestaurantCounter(globalState.restaurantCounter + 1);
   };
+  //create a like function that returns the like put method
+ 
   const handleBtnClick = (event) => {
     // Get the data-value of the clicked button, This value is coming from the Card component.
     console.log("this line works");
     const btnType = event.target.attributes.getNamedItem("data-value").value;
-    
+
     // We'll modify this object and use it to set our component's state
     if (btnType === "pick") {
-
-    let restaurantId = globalState.currentRestaurant.id
-      globalState.setLikedId(restaurantId)
-      console.log(globalState.likedId)
-      console.log(globalState.userName)
+      let restaurantId = globalState.currentRestaurant.id;
+      globalState.setLikedId(restaurantId);
+      console.log(globalState.likedId);
+      console.log(globalState.userName);
       // This may be the reason why this is not working userName is not being set properly I have to take off now but that is the other parameter that is missing to make a proper axios call check console.log line 31 to see it's empty
-      console.log(globalState.userName)
 
-      API.liked(globalState.likedId,globalState.userName )
+      API.liked(globalState.likedId, globalState.userName)
         .then((res) => {
           console.log("The like was successfull!!", globalState.likedId, res);
         })
@@ -44,6 +44,11 @@ function Discover(props) {
     loadNextRestaurant();
     restaurantRenderer();
   };
+  //listening to the direction
+  useEffect(()=>{
+    loadNextRestaurant();
+    restaurantRenderer()
+  },[direction])
 
   function restaurantRenderer() {
     if (globalState.name) {
@@ -65,17 +70,15 @@ function Discover(props) {
     }
   }
   const onSwipe = (direction) => {
-    console.log("You swiped: " + direction);
+    setSwipe(direction);
   };
 
-  const onCardLeftScreen = (myIdentifier) => {
-    console.log(myIdentifier + " left the screen");
-  };
+  
   return (
     <div class="background">
       <Navbar />
       <p name="currentUser" value={globalState.username}>
-        Welcome{globalState.username}
+        Welcome {globalState.userName}
       </p>
       <SearchBar />
       <h1 className="text-center">Find a new restaurant</h1>
@@ -88,8 +91,7 @@ function Discover(props) {
         </div>
         <TinderCard
           onSwipe={onSwipe}
-          onCardLeftScreen={() => onCardLeftScreen("fooBar")}
-          preventSwipe={["right", "left"]}
+          preventSwipe={["right", "left","up"]}
         >
           <Card image={globalState.image} handleBtnClick={handleBtnClick}>
             {" "}

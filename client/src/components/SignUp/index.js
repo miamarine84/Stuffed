@@ -1,24 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, {useState,useContext } from "react";
 import FormImage from "../FormImage";
 import { Form, Button } from "react-bootstrap";
 import API from "../../utils/API";
 import "./style.css";
+import { AppContext } from "../../App";
 
-function SignUp(props) {
-  const [username, setUserName] = useState("");
+function SignUp() {
+  const globalState=useContext(AppContext);
   const [password, setPassword] = useState("");
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     if (name === "username") {
-      setUserName(value);
+      globalState.setUserName(value);
     } else if (name === "password") {
       setPassword(value);
     }
   };
   const signUp = () => {
-    console.log(username, password)
-    API.signUp(username, password).then(response => {
+    console.log(globalState.userName, password)
+    API.signUp(globalState.userName, password).then(response => {
       console.log("success");
     }).catch(err => {
       console.log(err)
@@ -42,7 +43,7 @@ function SignUp(props) {
           <Form.Control
             onChange={handleInputChange}
             name="username"
-            value={username}
+            value={globalState.userName}
             type="text"
             placeholder="Enter username"
           />
