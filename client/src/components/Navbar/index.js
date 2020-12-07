@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 function Navbar(props) {
   const [state,dispatch]=useStoreContext();
   const [clicked, setClick] = useState(false);
-  const handleClick = () => {
-    setClick(true);
-  };
+  // const handleClick = () => {
+  //     setClick(true);
+  // };
   const AuthorToken = localStorage.getItem("authorization-token");
   const logOut = () => {
     console.log("test");
@@ -31,7 +31,7 @@ function Navbar(props) {
             loading="lazy"
           />
         </Link>
-        <div className="menu-icon" onClick={handleClick}>
+        <div className="menu-icon" onClick={()=>setClick(!clicked)}>
           <i className={clicked ? "fas fa-times" : "fas fa-bars"}></i>
         </div>
         <ul className={clicked ? "nav-menu active" : "nav-menu"}>

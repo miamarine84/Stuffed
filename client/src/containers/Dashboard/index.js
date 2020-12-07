@@ -6,7 +6,7 @@ import { SearchBar } from "../../components/SearchBar";
 import Navbar from "../../components/Navbar";
 import { AppContext } from "../../App";
 import "./style.css";
-import SearchUser from "../../components/SearchUser";
+
 import TinderCard from "react-tinder-card";
 
 function Discover() {
@@ -99,7 +99,7 @@ function Discover() {
         </TinderCard>
         <h1 className="restaurant-info">
         {restaurantRenderer()}</h1>
-        <SearchUser />
+       
       </div>
       <h1 className="restaurant-matches">
         We have {globalState.matchCount} restaurant matches
