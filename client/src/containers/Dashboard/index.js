@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState ,useEffect} from "react";
 import API from "../../utils/API";
 import Card from "../../components/Card";
 import Alert from "../../components/Alert";
@@ -12,13 +12,13 @@ import TinderCard from "react-tinder-card";
 function Discover() {
   //Here we are importing the globalstate of our applicztion. Coming from the App.js
   const globalState = useContext(AppContext);
-
+  const [direction,setSwipe]= useState('');
   const loadNextRestaurant = () => {
     //Here we need to handle the Next restaurant that need to be loaded.
     globalState.setRestaurantCounter(globalState.restaurantCounter + 1);
   };
   //create a like function that returns the like put method
-  
+ 
   const handleBtnClick = (event) => {
     // Get the data-value of the clicked button, This value is coming from the Card component.
     console.log("this line works");
@@ -44,6 +44,11 @@ function Discover() {
     loadNextRestaurant();
     restaurantRenderer();
   };
+  //listening to the direction
+  useEffect(()=>{
+    loadNextRestaurant();
+    restaurantRenderer()
+  },[direction])
 
   function restaurantRenderer() {
     if (globalState.name) {
@@ -65,16 +70,10 @@ function Discover() {
     }
   }
   const onSwipe = (direction) => {
-    console.log("You swiped: " + direction);
-
-    loadNextRestaurant();
-    restaurantRenderer();
-    
+    setSwipe(direction);
   };
 
-  const onCardLeftScreen = (myIdentifier) => {
-    console.log(myIdentifier + " left the screen");
-  };
+  
   return (
     <div class="background">
       <Navbar />
@@ -92,17 +91,17 @@ function Discover() {
         </div>
         <TinderCard
           onSwipe={onSwipe}
-          onCardLeftScreen={() => onCardLeftScreen("fooBar")}
-          preventSwipe={["right", "left"]}
+          preventSwipe={["right", "left","up"]}
         >
           <Card image={globalState.image} handleBtnClick={handleBtnClick}>
             {" "}
           </Card>
         </TinderCard>
-        {restaurantRenderer()}
+        <h1 className="restaurant-info">
+        {restaurantRenderer()}</h1>
         <SearchUser />
       </div>
-      <h1 className="text-center">
+      <h1 className="restaurant-matches">
         We have {globalState.matchCount} restaurant matches
       </h1>
       {/*<div className='buttons'>
