@@ -1,7 +1,6 @@
 import React,{useState} from 'react';
 import API from '../../utils/API'
 import Dashboard from '../../containers/Dashboard'
-import { BrowserRouter as Router, Route, Switch,Redirect } from "react-router-dom"; 
 import { Link } from "react-router-dom";
 import "./style.css";
 function SearchUser(){
@@ -26,7 +25,10 @@ function SearchUser(){
                 window.location.pathname === "/" ||
                   window.location.pathname === "/dashboard"
               }
-            ><button className="submit-btn"onClick={search}>Submit</button>
+            >
+                <button className="submit-btn"onClick={search}>
+                    Submit
+                </button>
             </Link>
         </form>
         </div>

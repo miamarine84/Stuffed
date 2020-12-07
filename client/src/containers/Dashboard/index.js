@@ -78,7 +78,7 @@ function Discover() {
     <div class="background">
       <Navbar />
       <p className="username" name="currentUser" value={globalState.username}>
-        Welcome{globalState.username}
+        Welcome {globalState.username}
       </p>
       <SearchBar />
       <h1 className="text-center">Find a new restaurant</h1>

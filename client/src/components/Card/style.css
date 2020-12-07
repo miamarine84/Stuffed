@@ -9,6 +9,7 @@
   position: relative;
   margin: 0 auto;
   margin-top: 40px;
+  margin-left:3.5%;
   background: rgba(238, 192, 192, 0.658);
   padding: 20px;
   margin-right:7%;
@@ -23,7 +24,7 @@
   width:200px;
   height:250px;
   position: absolute;
-  left: 25%;
+  left: 35.5%;
   top:4%;
   
 }
@@ -31,6 +32,6 @@
 .text{
   color:rgb(172, 8, 8);
   position:absolute;
-  top:70%;
-  left: 12%;
+  top:75%;
+  left: 25%;
 }

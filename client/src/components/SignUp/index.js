@@ -4,6 +4,7 @@ import { Form, Button } from "react-bootstrap";
 import API from "../../utils/API";
 import "./style.css";
 import { AppContext } from "../../App";
+import { Link } from "react-router-dom";
 
 function SignUp() {
   const globalState=useContext(AppContext);
@@ -39,7 +40,7 @@ function SignUp() {
       </h3>
       <Form className="formContainer" onSubmit={handleSubmit}>
         <Form.Group>
-          <Form.Label>username address</Form.Label>
+          <Form.Label>Username</Form.Label>
           <Form.Control
             onChange={handleInputChange}
             name="username"
@@ -62,9 +63,19 @@ function SignUp() {
             placeholder="Password"
           />
         </Form.Group>
-        <Button onClick={signUp} variant="primary" type="submit">
+
+        <Link
+              to="/home"
+              className={
+                window.location.pathname === "/" ||
+                  window.location.pathname === "/home"
+              }
+            >
+             <Button onClick={signUp} variant="primary" type="submit">
           Sign Up
         </Button>
+            </Link>
+        
       </Form>
     </div>
   );
