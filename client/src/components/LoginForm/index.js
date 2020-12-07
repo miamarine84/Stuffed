@@ -60,7 +60,7 @@ function LoginForm(props) {
     <div>
       
       <FormImage className="formImage" />
-      <h3>
+      <h3 className="login-here">
         Login here:
       </h3>
       <Form className="formContainer" onSubmit={handleSubmit}>
@@ -100,7 +100,7 @@ function LoginForm(props) {
                   window.location.pathname === "/home"
               }
             >
-             <Button onClick={logIn} variant="primary" type="submit">
+             <Button onClick={logIn} variant="primary" type="submit" className="login-btn">
           Login
         </Button>
             </Link>

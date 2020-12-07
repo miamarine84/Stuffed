@@ -71,7 +71,7 @@ function SignUp() {
                   window.location.pathname === "/home"
               }
             >
-             <Button onClick={signUp} variant="primary" type="submit">
+             <Button onClick={signUp} variant="primary" type="submit" className="signup-btn">
           Sign Up
         </Button>
             </Link>
