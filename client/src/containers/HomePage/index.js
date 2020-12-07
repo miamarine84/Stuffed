@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Hero from "../../components/Hero";
 import Container from "../../components/Container";
+import SearchUser from "../../components/SearchUser";
 import Row from "../../components/Row";
 import Col from "../../components/Col";
 import Navbar from "../../components/Navbar";
@@ -36,7 +37,7 @@ const HomePage = () => {
               agreed on a place to eat in no time! What are you waiting for? Visit the
               discover page to start swiping. 
             </p>
-            
+            <SearchUser />
           </Col>
         </Row>
       </Container>
