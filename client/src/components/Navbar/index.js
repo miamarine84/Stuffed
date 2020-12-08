@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./style.css";
 import {useStoreContext} from '../../utils/GlobalState';
-import {LOG_OUT} from '../../utils/actions';// import { SearchBar } from "../SearchBar";
+import {LOG_OUT} from '../../utils/actions';
+// import { SearchBar } from "../SearchBar";
 import { Link } from "react-router-dom";
 function Navbar(props) {
   const [state,dispatch]=useStoreContext();
@@ -35,6 +36,19 @@ function Navbar(props) {
           <i className={clicked ? "fas fa-times" : "fas fa-bars"}></i>
         </div>
         <ul className={clicked ? "nav-menu active" : "nav-menu"}>
+        <li className="nav-item">
+            <Link
+              to="/home"
+              className={
+                window.location.pathname === "/" ||
+                  window.location.pathname === "/home"
+                  ? "nav-links active"
+                  : "nav-links"
+              }
+            >
+              <h5>Home</h5>
+            </Link>
+            </li>
           <li className="nav-item">
             <Link
               to="/dashboard"
@@ -61,7 +75,7 @@ function Navbar(props) {
               <h5>Matches</h5>
             </Link>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
 
 
             <Link
@@ -75,7 +89,7 @@ function Navbar(props) {
             >
               <h5>Sign Up</h5>
             </Link>
-          </li>
+          </li> */}
           <li className="nav-item">
             {AuthorToken ? (<Link
               onClick={logOut}
