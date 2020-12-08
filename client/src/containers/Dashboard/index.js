@@ -1,4 +1,4 @@
-import React, { useContext, useState ,useEffect} from "react";
+import React, { useContext, useState ,useEffect, createRef} from "react";
 import API from "../../utils/API";
 import Card from "../../components/Card";
 import Alert from "../../components/Alert";
@@ -13,6 +13,7 @@ function Discover() {
   //Here we are importing the globalstate of our applicztion. Coming from the App.js
   const globalState = useContext(AppContext);
   const [direction,setSwipe]= useState('');
+  const tinderCard=createRef()
   const loadNextRestaurant = () => {
     //Here we need to handle the Next restaurant that need to be loaded.
     globalState.setRestaurantCounter(globalState.restaurantCounter + 1);
@@ -26,7 +27,7 @@ function Discover() {
 
     // We'll modify this object and use it to set our component's state
     if (btnType === "pick") {
-      
+      tinderCard.current.swipe("left")
       let restaurantId = globalState.currentRestaurant.id;
       globalState.setLikedId(restaurantId);
       console.log("This is the liked id",globalState.likedId);
@@ -42,6 +43,8 @@ function Discover() {
         .catch((err) => {
           console.log("Error with the like", err);
         });
+    } else {
+      tinderCard.current.swipe("right")
     }
     // Here we are loading the next restaurant and rendering the information of it.
     loadNextRestaurant();
@@ -94,7 +97,9 @@ function Discover() {
         <div className="name-info">
           <h3 className="restaurant-name">{globalState.name}</h3>
         </div>
-        <TinderCard
+        <TinderCard ref= {
+          tinderCard
+        }
           onSwipe={onSwipe}
           preventSwipe={["right", "left","up"]}
         >
