@@ -75,6 +75,20 @@ function SignUp() {
           Sign Up
         </Button>
             </Link>
+            <Form.Group controlId="formBasicusername">        
+        <Form.Label>Already have an account? 
+        </Form.Label>
+        </Form.Group>
+        <Form.Group controlId="formBasicusername"> 
+        <Form.Label>
+          <Link  to="/login"
+              className={
+                window.location.pathname === "/" ||
+                  window.location.pathname === "/login"
+              }>
+                <Button className="signup-button">Click here to login</Button></Link>
+                </Form.Label>
+      </Form.Group>
         
       </Form>
     </div>
