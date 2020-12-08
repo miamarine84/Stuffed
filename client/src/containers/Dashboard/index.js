@@ -26,7 +26,7 @@ function Discover() {
 
     // We'll modify this object and use it to set our component's state
     if (btnType === "pick") {
-      tinderCard.current.swipe("left")
+      // tinderCard.current.swipe("left")
       let restaurantId = globalState.currentRestaurant.id;
       globalState.setLikedId(restaurantId);
       
@@ -38,9 +38,10 @@ function Discover() {
         .catch((err) => {
           console.log("Error with the like", err);
         });
-    } else {
-      tinderCard.current.swipe("right")
     }
+    // else {
+    //   tinderCard.current.swipe("right")
+    // }
     // Here we are loading the next restaurant and rendering the information of it.
     loadNextRestaurant();
     restaurantRenderer();
@@ -99,9 +100,9 @@ function Discover() {
       </p>
       <SearchBar />
       <h1 className="text-center">Find a new restaurant</h1>
-      <h3 className="likeorswipe">
+      <p className="text-center likeorswipe">
         Like or swipe right if its a possible choice
-      </h3>
+      </p>
       <div className="container-div">
         <div className="name-info">
           <h3 className="restaurant-name">{globalState.name}</h3>

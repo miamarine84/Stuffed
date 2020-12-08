@@ -9,10 +9,7 @@
   position: relative;
   margin: 0 auto;
   margin-top: 40px;
-  margin-left:3.5%;
   background: rgba(238, 192, 192, 0.658);
-  padding: 20px;
-  margin-right:7%;
   max-width: 85vw;
   box-shadow: 0px 18px 53px 0px rgba(0,0,0,0.3 alpha);
   border-radius: 20px;
@@ -33,5 +30,5 @@
   color:rgb(172, 8, 8);
   position:absolute;
   top:75%;
-  left: 25%;
+  left: 26%;
 }
