@@ -21,7 +21,6 @@ function Discover() {
  
   const handleBtnClick = (event) => {
     // Get the data-value of the clicked button, This value is coming from the Card component.
-    console.log("this line works");
     const btnType = event.target.attributes.getNamedItem("data-value").value;
 
     // We'll modify this object and use it to set our component's state
@@ -29,12 +28,8 @@ function Discover() {
       
       let restaurantId = globalState.currentRestaurant.id;
       globalState.setLikedId(restaurantId);
-      console.log("This is the liked id",globalState.likedId);
-      console.log("This is the username of the current user logged in",globalState.userName);
-      
       
       // This may be the reason why this is not working userName is not being set properly I have to take off now but that is the other parameter that is missing to make a proper axios call check console.log line 31 to see it's empty
-
       API.liked(globalState.likedId, globalState.userName)
         .then((res) => {
          console.log("this is the like : ",res)
@@ -47,14 +42,28 @@ function Discover() {
     loadNextRestaurant();
     restaurantRenderer();
   };
+
   //handling the swipe
   const onSwipe = (direction) => {
-    setSwipe(direction);
+    if(direction==="right"){
+      let restaurantId = globalState.currentRestaurant.id;
+      globalState.setLikedId(restaurantId);
+      
+      // This may be the reason why this is not working userName is not being set properly I have to take off now but that is the other parameter that is missing to make a proper axios call check console.log line 31 to see it's empty
+      API.liked(globalState.likedId, globalState.userName)
+        .then((res) => {
+         console.log("this is the like : ",res)
+        })
+        .catch((err) => {
+          console.log("Error with the like", err);
+        });
+    }
+    loadNextRestaurant();
+    restaurantRenderer()
   };
   //listening to the direction
   useEffect(()=>{
-    loadNextRestaurant();
-    restaurantRenderer()
+    
   },[direction])
 
   function restaurantRenderer() {
