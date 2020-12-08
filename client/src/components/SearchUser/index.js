@@ -1,21 +1,30 @@
-import React,{useState} from 'react';
+import React,{useState,useContext} from 'react';
 import API from '../../utils/API'
 import Dashboard from '../../containers/Dashboard'
 import { Link } from "react-router-dom";
+import { AppContext } from "../../App";
 import "./style.css";
 function SearchUser(){
+    const globalState=useContext(AppContext);
     const [username,setUserName]=useState('');
-
    
 
     const search =async()=>{
+
+       
         //Here i am hitting the search route for the user, but the data is null
         API.searchUser(username).then(res=>{   
         console.log("it worked: ", res)
         }).catch(err=>console.log(err));
-    }
-
+    
+}
+    
+if(!globalState.userName){
+    return(<div></div>)
+} else{
+    
     return(
+      
         <div className = "search">
            
         <form onSubmit={(e)=>e.preventDefault()}>
@@ -35,5 +44,6 @@ function SearchUser(){
         </form>
         </div>
     )
+            }
 }
 export default SearchUser;

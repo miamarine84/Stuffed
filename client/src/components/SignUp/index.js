@@ -65,10 +65,10 @@ function SignUp() {
         </Form.Group>
 
         <Link
-              to="/home"
+              to="/login"
               className={
                 window.location.pathname === "/" ||
-                  window.location.pathname === "/home"
+                  window.location.pathname === "/login"
               }
             >
              <Button onClick={signUp} variant="primary" type="submit" className="signup-btn">
