@@ -82,7 +82,7 @@ function Discover() {
           <h6 className="restaurant-info">
             <a target="_blank" href={globalState.url}>
               Click here to check out {globalState.name} on Yelp!{" "}
-            </a>
+            </a><br />
             There are {globalState.reviewCount} reviews available
           </h6>
         </div>
@@ -131,10 +131,12 @@ function Discover() {
         style={{ opacity: globalState.match ? 1 : 0 }}
         type="success"
       >
-        Found something to eat!!!
+        We found something to eat!!!
       </Alert>
     </div>
   );
 }
+
+
 
 export default Discover;
