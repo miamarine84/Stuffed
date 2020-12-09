@@ -26,18 +26,22 @@ function SearchUser() {
 
             userFriendLikes.push(res.data[0].likedRestaurants)
             // pushing the liked restaurants in to those arrays for the user we are looking for
-            console.log(userFriendLikes);
+            console.log(userFriendLikes[0][1]);
             similarLikes()
         }).catch(err => console.log(err));
 
         // First attempt to try to compare both the users likes but its obvioulsy true in the if statement so it returns empty array for similarLikes need to make it get called after both calls on API push all the likedRestaurants in to both arrays. Now GF bugging so cant get that done within time. But will get done soon. Also check as there is an unhandledPromise in the terminal but its working fine.
-       
+
+        //Woke up before work and got both arrays for both users likes showing up fine just need comparison filter is the way to go it seems go here if anything https://stackoverflow.com/questions/30389599/comparing-and-filtering-two-arrays 
+        
+       let bothLike = []
         function similarLikes() {
             console.log(currentUsersLikes)
             console.log(userFriendLikes)
             if (userFriendLikes && currentUsersLikes) {
-                const similarLikes = userFriendLikes.filter(e => currentUsersLikes.indexOf(e) !== -1);;
-                console.log(similarLikes)
+                bothLike = currentUsersLikes[0].filter(value => 
+                userFriendLikes[0].includes(value))
+                console.log(bothLike)
             }
         }
     }
