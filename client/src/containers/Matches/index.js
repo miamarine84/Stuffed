@@ -1,22 +1,22 @@
-/*import React from 'react';
-import API from "../utils/API";
-import Navbar from "../components/Navbar";
-import {AppContext} from '../App'
+import React from 'react';
+import API from "../../utils/API";
+import Navbar from "../../components/Navbar";
+import {AppContext} from '../../App'
+import "./style.css";
 
-class Matches extends Component {
+const Matches = () => {
     //get results from "dashboard"
-}
+
 
 return(
     <div>
 
 < Navbar />
 
-<SearchBar />
 <br/>
         
       </div>
   )
+}
 
-
-export default Matches;*/
+export default Matches;
