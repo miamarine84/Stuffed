@@ -20,8 +20,6 @@ function SearchUser() {
 
             currentUsersLikes.push(res.data[0].likedRestaurants);
             // pushing the liked restaurants in to those arrays for the current user
-            console.log(currentUsersLikes)
-
         }).catch(err => console.log(err));
 
         API.searchUser(friendSearchName).then(res => {
@@ -29,13 +27,16 @@ function SearchUser() {
             userFriendLikes.push(res.data[0].likedRestaurants)
             // pushing the liked restaurants in to those arrays for the user we are looking for
             console.log(userFriendLikes);
+            similarLikes()
         }).catch(err => console.log(err));
 
         // First attempt to try to compare both the users likes but its obvioulsy true in the if statement so it returns empty array for similarLikes need to make it get called after both calls on API push all the likedRestaurants in to both arrays. Now GF bugging so cant get that done within time. But will get done soon. Also check as there is an unhandledPromise in the terminal but its working fine.
-        similarLikes()
+       
         function similarLikes() {
+            console.log(currentUsersLikes)
+            console.log(userFriendLikes)
             if (userFriendLikes && currentUsersLikes) {
-                const similarLikes = userFriendLikes.filter(element => currentUsersLikes.includes(element));
+                const similarLikes = userFriendLikes.filter(e => currentUsersLikes.indexOf(e) !== -1);;
                 console.log(similarLikes)
             }
         }
