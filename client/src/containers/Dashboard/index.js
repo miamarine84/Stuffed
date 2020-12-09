@@ -1,4 +1,4 @@
-import React, { useContext, useState ,useEffect, createRef} from "react";
+import React, { useContext, useState, useEffect, createRef } from "react";
 import API from "../../utils/API";
 import Card from "../../components/Card";
 import Alert from "../../components/Alert";
@@ -12,14 +12,14 @@ import TinderCard from "react-tinder-card";
 function Discover() {
   //Here we are importing the globalstate of our applicztion. Coming from the App.js
   const globalState = useContext(AppContext);
-  const [direction,setSwipe]= useState('');
-  const tinderCard=createRef()
+  const [direction, setSwipe] = useState('');
+  const tinderCard = createRef()
   const loadNextRestaurant = () => {
     //Here we need to handle the Next restaurant that need to be loaded.
     globalState.setRestaurantCounter(globalState.restaurantCounter + 1);
   };
   //create a like function that returns the like put method
- 
+
   const handleBtnClick = (event) => {
     // Get the data-value of the clicked button, This value is coming from the Card component.
     const btnType = event.target.attributes.getNamedItem("data-value").value;
@@ -29,11 +29,11 @@ function Discover() {
       // tinderCard.current.swipe("left")
       let restaurantId = globalState.currentRestaurant.id;
       globalState.setLikedId(restaurantId);
-      
+
       // This may be the reason why this is not working userName is not being set properly I have to take off now but that is the other parameter that is missing to make a proper axios call check console.log line 31 to see it's empty
       API.liked(globalState.likedId, globalState.userName)
         .then((res) => {
-         console.log("this is the like : ",res)
+          console.log("this is the like : ", res)
         })
         .catch((err) => {
           console.log("Error with the like", err);
@@ -49,14 +49,14 @@ function Discover() {
 
   //handling the swipe
   const onSwipe = (direction) => {
-    if(direction==="right"){
+    if (direction === "right") {
       let restaurantId = globalState.currentRestaurant.id;
       globalState.setLikedId(restaurantId);
-      
+
       // This may be the reason why this is not working userName is not being set properly I have to take off now but that is the other parameter that is missing to make a proper axios call check console.log line 31 to see it's empty
       API.liked(globalState.likedId, globalState.userName)
         .then((res) => {
-         console.log("this is the like : ",res)
+          console.log("this is the like : ", res)
         })
         .catch((err) => {
           console.log("Error with the like", err);
@@ -66,9 +66,9 @@ function Discover() {
     restaurantRenderer()
   };
   //listening to the direction
-  useEffect(()=>{
-    
-  },[direction])
+  useEffect(() => {
+
+  }, [direction])
 
   function restaurantRenderer() {
     if (globalState.name) {
@@ -89,9 +89,9 @@ function Discover() {
       );
     }
   }
-  
 
-  
+
+
   return (
     <div class="background">
       <Navbar />
@@ -107,20 +107,22 @@ function Discover() {
         <div className="name-info">
           <h3 className="restaurant-name">{globalState.name}</h3>
         </div>
-        <TinderCard ref= {
+        <TinderCard ref={
           tinderCard
         }
           onSwipe={onSwipe}
-          preventSwipe={["right", "left","up"]}
+          preventSwipe={["right", "left", "up"]}
         >
           <Card value={globalState.restId} image={globalState.image} handleBtnClick={handleBtnClick}>
             {" "}
           </Card>
         </TinderCard>
+        </div>
+        
         <h1 className="restaurant-info">
-        {restaurantRenderer()}</h1>
-       
-      </div>
+          {restaurantRenderer()}</h1>
+        
+      
       <h1 className="restaurant-matches">
         We have {globalState.matchCount} restaurant matches
       </h1>
