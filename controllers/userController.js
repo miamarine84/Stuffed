@@ -8,6 +8,7 @@ module.exports = {
     }).then(dbUser => {
       console.log("This is the username:",req.query.username)
       res.json(dbUser)
+      res.json(dbUser.data)
     }).catch(err => {
       res.sendStatus(404)
       console.log("there was an error findind the user", err)
