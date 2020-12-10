@@ -41,7 +41,7 @@ function SearchUser() {
             if (userFriendLikes && currentUsersLikes) {
                 bothLike = currentUsersLikes[0].filter(value => 
                 userFriendLikes[0].includes(value))
-                console.log(bothLike)
+                console.log("these are both likes",bothLike)
             }
         }
     }
