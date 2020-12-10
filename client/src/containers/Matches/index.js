@@ -9,11 +9,11 @@ const Matches = () => {
 
 
 return(
-    <div>
+    <div class="background">
 
 < Navbar />
+<br />
 
-<br/>
         
       </div>
   )
