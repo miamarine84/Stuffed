@@ -8,7 +8,7 @@
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   position: relative;
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 37px;
   background: rgba(238, 192, 192, 0.658);
   max-width: 85vw;
   box-shadow: 0px 18px 53px 0px rgba(0,0,0,0.3 alpha);
@@ -21,8 +21,8 @@
   width:200px;
   height:250px;
   position: absolute;
-  left: 35.5%;
-  top:4%;
+  left: 34%;
+  top:8%;
   
 }
 
@@ -30,5 +30,5 @@
   color:rgb(172, 8, 8);
   position:absolute;
   top:75%;
-  left: 26%;
+  left: 25%;
 }
