@@ -64,10 +64,10 @@ function Navbar(props) {
           </li>
           <li className="nav-item">
             <Link
-              to="/discover"
+              to="/matches"
               className={
                 window.location.pathname === "/" ||
-                  window.location.pathname === "/discover"
+                  window.location.pathname === "/matches"
                   ? "nav-links active"
                   : "nav-links"
               }
