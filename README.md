@@ -1,7 +1,10 @@
 # Stuff'd  
 Please visit the deployed link:   
+## Home Page  
 ![Stuff'd HomePage](https://user-images.githubusercontent.com/62992911/101988993-53cc5780-3c6b-11eb-9d89-6cc7b9927b8d.png)  
+## Discover Page  
 ![Stuff'd Discover Page](https://user-images.githubusercontent.com/62992911/101989043-a3128800-3c6b-11eb-8760-cb101bd58ead.png)  
+## Search Page  
 ![Stuff'd Discover Search](https://user-images.githubusercontent.com/62992911/101989050-bb82a280-3c6b-11eb-8a4a-3d574f776f41.png)  
 ## Overview
 We've all been there: You and your significant other are hungry but can't agree on a place to eat. 

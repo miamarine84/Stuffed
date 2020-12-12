@@ -19,6 +19,38 @@ function Discover() {
     globalState.setRestaurantCounter(globalState.restaurantCounter + 1);
   };
   //create a like function that returns the like put method
+  const search = async () => {
+        // creating variables for user thats logged on, user we are looking for, and arrays of both of those users
+        let currentUser = globalState.userName;
+        let friendSearchName = globalState.usersFriend;
+        let currentUsersLikes = [];
+        let userFriendLikes = [];
+
+        API.searchUser(currentUser).then(res => {
+            console.log(globalState.bothLike)
+            currentUsersLikes.push(res.data[0].likedRestaurants);
+            // pushing the liked restaurants in to those arrays for the current user
+        }).catch(err => console.log(err));
+
+        API.searchUser(friendSearchName).then(res => {
+
+            userFriendLikes.push(res.data[0].likedRestaurants)
+            // pushing the liked restaurants in to those arrays for the user we are looking for
+            similarLikes()
+        }).catch(err => console.log(err));
+   
+        function similarLikes() {
+            console.log(currentUsersLikes)
+            console.log(userFriendLikes)
+            if (userFriendLikes && currentUsersLikes) {
+                let likeSimilarArray = currentUsersLikes[0].filter(value => 
+                userFriendLikes[0].includes(value))
+                console.log(likeSimilarArray)
+                globalState.setBothLike(likeSimilarArray)
+                console.log(globalState.bothLike)
+            }
+        }
+    }
 
   const handleBtnClick = (event) => {
     // Get the data-value of the clicked button, This value is coming from the Card component.
@@ -38,6 +70,7 @@ function Discover() {
         .catch((err) => {
           console.log("Error with the like", err);
         });
+        search();
     }
     // else {
     //   tinderCard.current.swipe("right")
@@ -124,7 +157,7 @@ function Discover() {
         
       
       <h1 className="restaurant-matches">
-        We have {globalState.matchCount} restaurant matches
+        We have {globalState.bothLike.length} restaurant matches
       </h1>
       {/* This is the alert that we are using when something goes wrong */}
       <Alert

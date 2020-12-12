@@ -7,14 +7,12 @@ import "./style.css";
 
 function SearchUser() {
     const globalState = useContext(AppContext);
-    const [usersFriend, setUsersFriend] = useState('');
-    const [bothLike, setBothLike] = useState("");
-  console.log(globalState.bothLike)
+     console.log(globalState.bothLike)
     // Created usersFriend to save the friend we are searching for in to a new variable
     const search = async () => {
         // creating variables for user thats logged on, user we are looking for, and arrays of both of those users
         let currentUser = globalState.userName;
-        let friendSearchName = usersFriend;
+        let friendSearchName = globalState.usersFriend;
         let currentUsersLikes = [];
         let userFriendLikes = [];
 
@@ -30,11 +28,6 @@ function SearchUser() {
             // pushing the liked restaurants in to those arrays for the user we are looking for
             similarLikes()
         }).catch(err => console.log(err));
-
-        // First attempt to try to compare both the users likes but its obvioulsy true in the if statement so it returns empty array for similarLikes need to make it get called after both calls on API push all the likedRestaurants in to both arrays. Now GF bugging so cant get that done within time. But will get done soon. Also check as there is an unhandledPromise in the terminal but its working fine.
-
-        //Woke up before work and got both arrays for both users likes showing up fine just need comparison filter is the way to go it seems go here if anything https://stackoverflow.com/questions/30389599/comparing-and-filtering-two-arrays 
-        
    
         function similarLikes() {
             console.log(currentUsersLikes)
@@ -44,7 +37,6 @@ function SearchUser() {
                 userFriendLikes[0].includes(value))
                 console.log(likeSimilarArray)
                 globalState.setBothLike(likeSimilarArray)
-                console.log(globalState.bothLike)
             }
         }
     }
@@ -59,7 +51,7 @@ function SearchUser() {
 
                 <form onSubmit={(e) => e.preventDefault()}>
 
-                    <input className="search-bar form-control" username={usersFriend} onChange={(e) => setUsersFriend(e.target.value)} placeholder="Enter a Username" />
+                    <input className="search-bar form-control" username={globalState.usersFriend} onChange={(e) => globalState.setUsersFriend(e.target.value)} placeholder="Enter a Username" />
                     <Link
                         to="/dashboard"
                         className={
