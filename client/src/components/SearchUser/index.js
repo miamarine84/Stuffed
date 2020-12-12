@@ -59,7 +59,7 @@ function SearchUser() {
 
                 <form onSubmit={(e) => e.preventDefault()}>
 
-                    <input className="search-bar form-control" username={usersFriend} onChange={(e) => setUsersFriend(e.target.value)} placeholder="Please Enter a Username" />
+                    <input className="search-bar form-control" username={usersFriend} onChange={(e) => setUsersFriend(e.target.value)} placeholder="Enter a Username" />
                     <Link
                         to="/dashboard"
                         className={
