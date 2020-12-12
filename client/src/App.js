@@ -6,7 +6,7 @@ import RootContainer from './RootContainer';
 export const AppContext = createContext();
 
 function App() {
-  const [imageSrc,setImageSrc]=useState('');
+  const [imageSrc,setImageSrc]=useState('https://user-images.githubusercontent.com/65417908/101260693-799fac80-36ff-11eb-90ff-aa1a486a61fa.png');
   const [bothLike, setBothLike] = useState([]);
   const [usersFriend,setUsersFriend]=useState('');
   const [likedId, setLikedId] = useState("");
