@@ -17,21 +17,17 @@ function SearchUser() {
         let userFriendLikes = [];
 
         API.searchUser(currentUser).then(res => {
-            console.log(globalState.bothLike)
             currentUsersLikes.push(res.data[0].likedRestaurants);
             // pushing the liked restaurants in to those arrays for the current user
         }).catch(err => console.log(err));
 
         API.searchUser(friendSearchName).then(res => {
-
             userFriendLikes.push(res.data[0].likedRestaurants)
             // pushing the liked restaurants in to those arrays for the user we are looking for
             similarLikes()
         }).catch(err => console.log(err));
    
         function similarLikes() {
-            console.log(currentUsersLikes)
-            console.log(userFriendLikes)
             if (userFriendLikes && currentUsersLikes) {
                 let likeSimilarArray = currentUsersLikes[0].filter(value => 
                 userFriendLikes[0].includes(value))
