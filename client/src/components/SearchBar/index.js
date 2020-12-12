@@ -20,6 +20,7 @@ export function SearchBar(props) {
     e.preventDefault();
     //Here we are using the callback function from our 'useBusinessSearch' and passing the term and location as the values.
     setSearchParams({ term, location });
+    
   }
   //These are the variable that we can work with.
   const [
@@ -92,7 +93,7 @@ export function SearchBar(props) {
         <div
           className={`submitBtn`}
           //Handling the click with the submit function avobe.
-          onClick={submit, setRestaurant()}
+          onClick={setRestaurant()}
         ></div>
         <p className="control">
           <button  className={`button is-static`}>Search</button>
