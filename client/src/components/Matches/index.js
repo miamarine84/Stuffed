@@ -21,30 +21,33 @@ function MatchList(props) {
       console.log("Error with the like", err);
     });
 // LINE 15-27 IS TEST DATA FOR STYLING PURPOSES. Will be deleted once we get the actual data from the database
- 
-    const testData=[{
-        img: "https://s3-media1.fl.yelpcdn.com/bphoto/qZhQDmRihSoVcQSOu3pRlA/o.jpg",
-        name: "Pizza Restaurant"
+"https://s3-media1.fl.yelpcdn.com/bphoto/rw3MYGTYt36JKegN9XBGCA/o.jpg"
+
+
+const testData=[{
+        img: "https://s3-media1.fl.yelpcdn.com/bphoto/rw3MYGTYt36JKegN9XBGCA/o.jpg",
+        name: "Magic City Pizza",
+        url:"https://www.yelp.com/biz/magic-city-pizza-miami?adjust_creative=91BOvSxAxbnG4kyhopWaLw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=91BOvSxAxbnG4kyhopWaLw"
     },
     {
-        img: "https://s3-media3.fl.yelpcdn.com/bphoto/6J-ya3_qIS7wre0T3v9Sfg/o.jpg",
-        name:"Burger Restaurant"
-    },
-    {
-    img: "https://s3-media2.fl.yelpcdn.com/bphoto/UBtJfIMs1E-j3g0lE9ZHDg/o.jpg",
-    name: "Taco Restaurant"
-    },
-    {
-        img: "https://s3-media1.fl.yelpcdn.com/bphoto/qZhQDmRihSoVcQSOu3pRlA/o.jpg",
-        name: "Pizza Restaurant"
-    },
-    {
-        img: "https://s3-media3.fl.yelpcdn.com/bphoto/6J-ya3_qIS7wre0T3v9Sfg/o.jpg",
-        name:"Burger Restaurant"
+        img: "https://s3-media4.fl.yelpcdn.com/bphoto/MEOupGLBbGYyJF6y6opRzg/o.jpg",
+        name:"Hate Mondays Tavern",
+        url: "https://www.yelp.com/biz/hate-mondays-tavern-miami?adjust_creative=91BOvSxAxbnG4kyhopWaLw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=91BOvSxAxbnG4kyhopWaLw"
     },
     {
     img: "https://s3-media2.fl.yelpcdn.com/bphoto/UBtJfIMs1E-j3g0lE9ZHDg/o.jpg",
-    name: "Taco Restaurant"
+    name: "Tacos & Tattoos",
+    url: "https://www.yelp.com/biz/tacos-and-tattoos-miami-2?adjust_creative=91BOvSxAxbnG4kyhopWaLw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=91BOvSxAxbnG4kyhopWaLw"
+    },
+    {
+        img: "https://s3-media1.fl.yelpcdn.com/bphoto/PkhjEsMKhPHOtH8gheq3lQ/o.jpg",
+        name: "Ohana Sushi",
+        url: "https://www.yelp.com/biz/ohana-sushi-doral?adjust_creative=91BOvSxAxbnG4kyhopWaLw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=91BOvSxAxbnG4kyhopWaLw"
+    },
+    {
+        img: "https://s3-media2.fl.yelpcdn.com/bphoto/8_dnUGiqVdX_ZcGj6ddikQ/o.jpg",
+        name:"Vero",
+        url: "https://www.yelp.com/biz/vero-miami-3?adjust_creative=91BOvSxAxbnG4kyhopWaLw&amp;utm_campaign=yelp_api_v3&amp;utm_medium=api_v3_business_search&amp;utm_source=91BOvSxAxbnG4kyhopWaLw"
     },
     ]
     return (
@@ -58,7 +61,10 @@ function MatchList(props) {
                             style={{
                                 backgroundImage: testData.img ? `url(${testData.img})` : "none"
                               }}></div>
-                        <div class="card-body image-title">{testData.name}</div></div>
+                        <div class="card-body image-title">{testData.name}</div>
+                        <div className="yelp-link"><a className="yelp-link" target="_blank" href={testData.url}>Click here to check out {testData.name} on Yelp! </a>
+                            </div>
+                            </div>
                         ))}
                         
                     
