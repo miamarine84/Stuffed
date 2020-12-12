@@ -10,7 +10,7 @@ const Matches = () => {
     //get results from "dashboard"
     const globalState = useContext(AppContext);
    
-   
+   console.log(globalState)
 
 return(
     <div class="background">
