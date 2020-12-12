@@ -12,7 +12,7 @@ import TinderCard from "react-tinder-card";
 function Discover() {
   //Here we are importing the globalstate of our applicztion. Coming from the App.js
   const globalState = useContext(AppContext);
-  const [direction, setSwipe] = useState('');
+  const [matchCount,setCount]=useState(0);
   const tinderCard = createRef()
   const loadNextRestaurant = () => {
     //Here we need to handle the Next restaurant that need to be loaded.
@@ -20,6 +20,7 @@ function Discover() {
   };
   //create a like function that returns the like put method
   const search = async () => {
+        setCount(globalState.bothLike.length)
         // creating variables for user thats logged on, user we are looking for, and arrays of both of those users
         let currentUser = globalState.userName;
         let friendSearchName = globalState.usersFriend;
@@ -40,18 +41,20 @@ function Discover() {
         }).catch(err => console.log(err));
    
         function similarLikes() {
-            console.log(currentUsersLikes)
-            console.log(userFriendLikes)
             if (userFriendLikes && currentUsersLikes) {
                 let likeSimilarArray = currentUsersLikes[0].filter(value => 
                 userFriendLikes[0].includes(value))
-                console.log(likeSimilarArray)
-                globalState.setBothLike(likeSimilarArray)
+                globalState.setBothLike(likeSimilarArray);
                 console.log(globalState.bothLike)
             }
         }
     }
-
+    useEffect(()=>{
+      globalState.setMatch(true);
+      setTimeout(function(){
+        globalState.setMatch(false);
+      },1000)
+    },[matchCount])
   const handleBtnClick = (event) => {
     // Get the data-value of the clicked button, This value is coming from the Card component.
     const btnType = event.target.attributes.getNamedItem("data-value").value;
@@ -99,9 +102,7 @@ function Discover() {
     restaurantRenderer()
   };
   //listening to the direction
-  useEffect(() => {
-
-  }, [direction])
+  
 
   function restaurantRenderer() {
     if (globalState.name) {

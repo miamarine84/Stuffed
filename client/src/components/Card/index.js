@@ -7,7 +7,6 @@ function Card(props) {
 
   const globalState = useContext(AppContext);
   
-
   return (
 
     <div
