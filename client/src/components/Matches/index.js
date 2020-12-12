@@ -49,12 +49,12 @@ function MatchList(props) {
     ]
     return (
 
-<div class="container">
+<div class="container" >
             <div class="row">
                 
  {/* The only thing here we will need to change is the test data call to the actual data call */}
-                        {testData.map((testData)=>(
-                            <div class="col-lg-4 mb-4 col-sm-12"><div class="picture-card"     
+                        {testData.map((testData,index)=>(
+                            <div key={`id-${index}`} class="col-lg-4 mb-4 col-sm-12"><div class="picture-card"     
                             style={{
                                 backgroundImage: testData.img ? `url(${testData.img})` : "none"
                               }}></div>
