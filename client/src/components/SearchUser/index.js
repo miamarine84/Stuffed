@@ -9,14 +9,14 @@ function SearchUser() {
   const globalState = useContext(AppContext);
   const [usersFriend, setUsersFriend] = useState("");
   const [listLikes, setListLikes] = useState({});
+  let currentUser = globalState.userName;
+  let friendSearchName = usersFriend;
+  let currentUsersLikes = [];
+  let userFriendLikes = [];
+  let bothLike = [];
   // Created usersFriend to save the friend we are searching for in to a new variable
   const search = async () => {
     // creating variables for user thats logged on, user we are looking for, and arrays of both of those users
-    let currentUser = globalState.userName;
-    let friendSearchName = usersFriend;
-    let currentUsersLikes = [];
-    let userFriendLikes = [];
-
     API.searchUser(currentUser)
       .then((res) => {
         currentUsersLikes.push(res.data[0].likedRestaurants);
@@ -33,23 +33,17 @@ function SearchUser() {
       })
       .catch((err) => console.log(err));
 
-    // First attempt to try to compare both the users likes but its obvioulsy true in the if statement so it returns empty array for similarLikes need to make it get called after both calls on API push all the likedRestaurants in to both arrays. Now GF bugging so cant get that done within time. But will get done soon. Also check as there is an unhandledPromise in the terminal but its working fine.
-
-    //Woke up before work and got both arrays for both users likes showing up fine just need comparison filter is the way to go it seems go here if anything https://stackoverflow.com/questions/30389599/comparing-and-filtering-two-arrays
-
-    let bothLike = [];
     function similarLikes() {
       if (userFriendLikes && currentUsersLikes) {
         bothLike = currentUsersLikes[0].filter((value) =>
           userFriendLikes[0].includes(value)
         );
       }
-      setListLikes({bothLike})
       
-      console.log("these are both likes",listLikes);
+      console.log("This are both likes", bothLike);
     }
   };
-  
+
 
   if (!globalState.userName) {
     return <div></div>;
