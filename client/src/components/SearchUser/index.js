@@ -8,6 +8,8 @@ import "./style.css";
 function SearchUser() {
     const globalState = useContext(AppContext);
     const [usersFriend, setUsersFriend] = useState('');
+    const [bothLike, setBothLike] = useState("");
+  console.log(globalState.bothLike)
     // Created usersFriend to save the friend we are searching for in to a new variable
     const search = async () => {
         // creating variables for user thats logged on, user we are looking for, and arrays of both of those users
@@ -17,7 +19,7 @@ function SearchUser() {
         let userFriendLikes = [];
 
         API.searchUser(currentUser).then(res => {
-
+            console.log(globalState.bothLike)
             currentUsersLikes.push(res.data[0].likedRestaurants);
             // pushing the liked restaurants in to those arrays for the current user
         }).catch(err => console.log(err));
@@ -26,7 +28,6 @@ function SearchUser() {
 
             userFriendLikes.push(res.data[0].likedRestaurants)
             // pushing the liked restaurants in to those arrays for the user we are looking for
-            console.log(userFriendLikes[0][1]);
             similarLikes()
         }).catch(err => console.log(err));
 
@@ -34,14 +35,16 @@ function SearchUser() {
 
         //Woke up before work and got both arrays for both users likes showing up fine just need comparison filter is the way to go it seems go here if anything https://stackoverflow.com/questions/30389599/comparing-and-filtering-two-arrays 
         
-       let bothLike = []
+   
         function similarLikes() {
             console.log(currentUsersLikes)
             console.log(userFriendLikes)
             if (userFriendLikes && currentUsersLikes) {
-                bothLike = currentUsersLikes[0].filter(value => 
+                let likeSimilarArray = currentUsersLikes[0].filter(value => 
                 userFriendLikes[0].includes(value))
-                console.log(bothLike)
+                console.log(likeSimilarArray)
+                globalState.setBothLike(likeSimilarArray)
+                console.log(globalState.bothLike)
             }
         }
     }
