@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { AppContext } from "../../App";
-
+import API from "../../../src/utils/API";
 import "./style.css";
 
 
@@ -9,7 +9,17 @@ function MatchList(props) {
 
     const globalState = useContext(AppContext);
 
+    console.log(globalState.bothLike)
 
+    let matchLiked = globalState.bothLike[0];
+    console.log(matchLiked)
+    API.matchLiked(matchLiked)
+    .then((res) => {
+      console.log("this is the like : ", res)
+    })
+    .catch((err) => {
+      console.log("Error with the like", err);
+    });
 // LINE 15-27 IS TEST DATA FOR STYLING PURPOSES. Will be deleted once we get the actual data from the database
  
     const testData=[{
