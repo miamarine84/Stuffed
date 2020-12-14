@@ -167,7 +167,7 @@ function Discover() {
         style={{ opacity: globalState.match ? 1 : 0 }}
         type="success"
       >
-        Found something to eat!!!
+        We found something to eat!!!
       </Alert>
     </div>
   );

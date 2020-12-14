@@ -30,25 +30,22 @@ const testData=[{
         url:"https://www.yelp.com/biz/magic-city-pizza-miami?adjust_creative=91BOvSxAxbnG4kyhopWaLw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=91BOvSxAxbnG4kyhopWaLw"
     },
     {
-        img: "https://s3-media4.fl.yelpcdn.com/bphoto/MEOupGLBbGYyJF6y6opRzg/o.jpg",
-        name:"Hate Mondays Tavern",
-        url: "https://www.yelp.com/biz/hate-mondays-tavern-miami?adjust_creative=91BOvSxAxbnG4kyhopWaLw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=91BOvSxAxbnG4kyhopWaLw"
+        img: "https://s3-media1.fl.yelpcdn.com/bphoto/-M1zxlMTl5nGfukcvcW6JA/o.jpg",
+        name:"Kush",
+        url: "https://www.yelp.com/biz/kush-miami-2?adjust_creative=91BOvSxAxbnG4kyhopWaLw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=91BOvSxAxbnG4kyhopWaLw"
     },
     {
-    img: "https://s3-media2.fl.yelpcdn.com/bphoto/UBtJfIMs1E-j3g0lE9ZHDg/o.jpg",
-    name: "Tacos & Tattoos",
-    url: "https://www.yelp.com/biz/tacos-and-tattoos-miami-2?adjust_creative=91BOvSxAxbnG4kyhopWaLw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=91BOvSxAxbnG4kyhopWaLw"
+    img: "https://s3-media3.fl.yelpcdn.com/bphoto/xX_9jEQ7p2TUp8B9cPqfSQ/o.jpg",
+    name: "Taqueria Los Potrillos",
+    url: "https://www.yelp.com/biz/taqueria-los-potrillos-miami-2?adjust_creative=91BOvSxAxbnG4kyhopWaLw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=91BOvSxAxbnG4kyhopWaLw"
     },
     {
-        img: "https://s3-media1.fl.yelpcdn.com/bphoto/PkhjEsMKhPHOtH8gheq3lQ/o.jpg",
-        name: "Ohana Sushi",
-        url: "https://www.yelp.com/biz/ohana-sushi-doral?adjust_creative=91BOvSxAxbnG4kyhopWaLw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=91BOvSxAxbnG4kyhopWaLw"
+        img: "https://s3-media1.fl.yelpcdn.com/bphoto/5aBBOJzYulwiTgfX1ZXbgQ/o.jpg",
+        name:"Casa Tua Cucina",
+        url: "https://www.yelp.com/biz/casa-tua-cucina-miami?adjust_creative=91BOvSxAxbnG4kyhopWaLw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=91BOvSxAxbnG4kyhopWaLw"
     },
-    {
-        img: "https://s3-media2.fl.yelpcdn.com/bphoto/8_dnUGiqVdX_ZcGj6ddikQ/o.jpg",
-        name:"Vero",
-        url: "https://www.yelp.com/biz/vero-miami-3?adjust_creative=91BOvSxAxbnG4kyhopWaLw&amp;utm_campaign=yelp_api_v3&amp;utm_medium=api_v3_business_search&amp;utm_source=91BOvSxAxbnG4kyhopWaLw"
-    },
+
+
     ]
     return (
 
