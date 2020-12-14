@@ -133,6 +133,15 @@ function Discover() {
         Welcome {globalState.userName}
       </p>
       <SearchBar />
+      {/* This is the alert that we are using when something goes wrong */}
+      <Alert
+        name="restId"
+        value={globalState.restId}
+        style={{ opacity: globalState.match ? 1 : 0 }}
+        type="success"
+      >
+        Found something to eat!!!
+      </Alert>
       <h1 className="text-center">Find a new restaurant</h1>
       <p className="text-center likeorswipe">
         Like or swipe right if its a possible choice
@@ -160,15 +169,6 @@ function Discover() {
       <h1 className="restaurant-matches">
         We have {globalState.bothLike.length} restaurant matches
       </h1>
-      {/* This is the alert that we are using when something goes wrong */}
-      <Alert
-        name="restId"
-        value={globalState.restId}
-        style={{ opacity: globalState.match ? 1 : 0 }}
-        type="success"
-      >
-        We found something to eat!!!
-      </Alert>
     </div>
   );
 }

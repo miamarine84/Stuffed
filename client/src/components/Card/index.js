@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import {Spinner} from "../Spinner"
 import { AppContext } from "../../App";
 import CardBtn from "../CardBtn";
 import "./style.css";
@@ -13,14 +14,13 @@ function Card(props) {
       className="card"
       // it gets the value of the image from the props of this element
       style={{
-        backgroundImage: props.image ? `url(${props.image})` : "none"
+        backgroundImage: props.image ? `url(${props.image})` : 'https://user-images.githubusercontent.com/65417908/101260693-799fac80-36ff-11eb-90ff-aa1a486a61fa.png'
       }}
 
       
     >
       {/* If there is no "props.image" we display the spinner. */}
-      {!props.image && <div><img src={"https://user-images.githubusercontent.com/65417908/101260693-799fac80-36ff-11eb-90ff-aa1a486a61fa.png"}className="logo" aria-hidden="true"></img><p className="text">Fill out the form above to start swiping!</p></div>}
-      {/* {!props.image && <div><i className="fa fa-spinner fa-spin" aria-hidden="true" /><p className="text">Fill out the form above to start swiping!</p></div>} */}
+      {!props.image && <div><img src={globalState.imageSrc}className="logo" aria-hidden="true"></img><p className="text">Fill out the form above to start swiping!</p></div>}
       {/* These are the buttons of the application. */}
       <CardBtn
         onClick={props.handleBtnClick}
