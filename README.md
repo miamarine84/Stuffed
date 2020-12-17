@@ -1,5 +1,5 @@
 # Stuff'd  
-Please visit the deployed link:   
+Please visit the deployed link: https://peaceful-reaches-88708.herokuapp.com/home     
 ## Home Page  
 ![Stuff'd HomePage](https://user-images.githubusercontent.com/62992911/101988993-53cc5780-3c6b-11eb-9d89-6cc7b9927b8d.png)  
 ## Discover Page  
